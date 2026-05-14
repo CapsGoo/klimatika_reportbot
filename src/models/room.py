@@ -6,19 +6,18 @@ from .cleaningnode import CleaningNode
 from .block import Block
 from enum import Enum
 
-
 import os
 import tempfile
 from typing import Optional
 from pathlib import Path
-from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.oauth2.credentials import Credentials
-
-from config import SERVICE_ACCOUNT_INFO
 import requests
 
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
+from config import FOLDER_ID, SCOPES, TOKEN_FILE, CREDENTIALS_FILE
 @dataclass
 class Room:
     class Type(str, Enum):
@@ -546,51 +545,64 @@ async def download_video(bot: Bot, file_id: str) -> Optional[str]:
         return None
 
 
-
-
-
-
-from google.auth.transport.requests import Request
-import os
-
-from config import FOLDER_ID, SCOPES, SERVICE_ACCOUNT_INFO, OAUTH_TOKEN_INFO
-
+# ========== НОВАЯ ФУНКЦИЯ АВТОРИЗАЦИИ (работает и на ПК, и на сервере) ==========
 def get_creds():
+    """
+    Получает учетные данные для Google Drive API.
+    При первом запуске на ПК откроет браузер для авторизации.
+    На сервере будет использовать сохраненный токен.
+    """
     creds = None
-    # Проверяем, есть ли уже токен
-    if os.path.exists(OAUTH_TOKEN_INFO):
-        creds = Credentials.from_authorized_user_file(OAUTH_TOKEN_INFO, SCOPES)
     
-    # Если токена нет или он просрочен
+    # Пытаемся загрузить сохраненный токен
+    if TOKEN_FILE.exists():
+        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
+    
+    # Если токена нет или он недействителен
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())  # Обновляем токен
+            # Обновляем просроченный токен
+            creds.refresh(Request())
+            print("Токен успешно обновлен")
         else:
-            # Запускаем OAuth-поток (откроется браузер)
+            # Первая авторизация (только на ПК с браузером)
+            print("Запускаем процесс авторизации. Откроется браузер...")
             flow = InstalledAppFlow.from_client_secrets_file(
-                SERVICE_ACCOUNT_INFO, 
-                SCOPES
+                str(CREDENTIALS_FILE), SCOPES
             )
-            creds = flow.run_local_server(port=0)  # Авторизация в браузере
+            creds = flow.run_local_server(port=0)
+            print("Авторизация успешна!")
         
-        # Сохраняем токен для след. запусков
-        with open("config/token.json", "w") as token_file:
+        # Сохраняем токен для будущих запусков
+        with open(TOKEN_FILE, 'w') as token_file:
             token_file.write(creds.to_json())
+        print(f"Токен сохранен в {TOKEN_FILE}")
     
     return creds
 
-async def upload_to_gdrive(file_path: str):
+# ========== ОБНОВЛЕННАЯ ФУНКЦИЯ ЗАГРУЗКИ ==========
+async def upload_to_gdrive(file_path: str) -> Optional[str]:
+    """
+    Загружает файл на Google Drive и возвращает публичную ссылку.
+    Работает синхронно внутри асинхронной обертки.
+    """
     try:
-        creds = get_creds()  # Получаем авторизованные creds
+        # Получаем авторизованные creds
+        creds = get_creds()
         service = build("drive", "v3", credentials=creds)
 
-        # Загружаем файл с указанием родительской папки
+        # Подготавливаем метаданные файла
         file_metadata = {
             "name": os.path.basename(file_path),
-            "parents": [FOLDER_ID]  # Вот ключевое изменение!
+            "parents": [FOLDER_ID]
         }
         
-        media = MediaFileUpload(file_path, mimetype="video/mp4")
+        # Загружаем файл (resumable=True для больших файлов)
+        media = MediaFileUpload(
+            file_path, 
+            mimetype="video/mp4",
+            resumable=True  # Хорошо для больших видео
+        )
         
         file = service.files().create(
             body=file_metadata,
@@ -598,14 +610,15 @@ async def upload_to_gdrive(file_path: str):
             fields="id,webViewLink",
         ).execute()
 
-        # Делаем файл доступным по ссылке
+        # Делаем файл публичным (чтобы получить ссылку)
         service.permissions().create(
             fileId=file["id"],
             body={"type": "anyone", "role": "reader"},
         ).execute()
 
+        print(f"Файл успешно загружен! ID: {file.get('id')}")
         return file.get("webViewLink")
     
     except Exception as e:
-        print(f"Ошибка загрузки: {e}")
-        raise
+        print(f"Ошибка загрузки на Google Drive: {e}")
+        return None

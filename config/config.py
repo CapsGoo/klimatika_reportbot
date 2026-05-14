@@ -10,13 +10,14 @@ BOT_CONFIG = CONFIG_FILE["BOT"]
 BOT_TOKEN = BOT_CONFIG["TOKEN"]
 
 
-SERVICE_ACCOUNT_INFO = Path(__file__).parent / "service-account.json"
-OAUTH_TOKEN_INFO = Path(__file__).parent / "token.json"
-SCOPES = ['https://www.googleapis.com/auth/drive']
 
-folder_config_path = Path(__file__).parent / "folder.json"
-
-with open(folder_config_path, 'r', encoding='utf-8') as f:
+# ========== ЗАГРУЗКА КОНФИГУРАЦИИ ==========
+# Загружаем ID папки из folder.json
+with open(Path(__file__).parent / "folder.json", 'r', encoding='utf-8') as f:
     config = json.load(f)
+    FOLDER_ID = config["FOLDER_ID"]
 
-FOLDER_ID = config["FOLDER_ID"]
+# Настройки Google Drive API
+CREDENTIALS_FILE = Path(__file__).parent / "credentials.json"
+TOKEN_FILE = Path(__file__).parent / "token.json"
+SCOPES = ['https://www.googleapis.com/auth/drive.file']
