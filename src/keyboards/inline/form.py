@@ -3,7 +3,7 @@ from aiogram import types
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from src.misc.getters import get_current_user_report, get_current_user_room
-from src.models import Room, Report, Client, CleaningNode
+from src.models import Room, Report, Client, CleaningNode,Time
 from src.callbackdata import (
     ExtraServiceCB,
     ServiceCB,
@@ -12,8 +12,13 @@ from src.callbackdata import (
     RoomTypeCB,
     CleaningNodeCB,
     FactorCB,
+    BlockTypeCB,
+    TimeTypeCB,
+    IncompleteNodeCB,
+    CheckListNodeCB,
+    MasterCB,
+    NodeActionCB
 )
-
 
 def get_room_type_keyboard(
     chat_id: int, room_types: list[tuple[str, Room.Type]], other: str,
@@ -40,16 +45,47 @@ def get_room_type_keyboard(
     return builder.as_markup()
 
 
-def get_client_type_keyboard(
-    chat_id: int, client_types: list[tuple[str, Client.Type]]
+def get_datatime_type_keyboard(
+    chat_id: int, time_types: list[tuple[str, Time]],
 ) -> types.InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
-    for text, client_type in client_types:
+    for text, time_type in time_types:
         builder.add(
             types.InlineKeyboardButton(
-                text=text, callback_data=ClientCB(type=client_type).pack()
+                text=text, callback_data=TimeTypeCB(type=time_type).pack()
             )
         )
+    
+    builder.adjust(3)
+    return builder.as_markup()
+
+
+def get_block_type_keyboard(
+    chat_id: int, block_types: list[tuple[str, Room.Type]],
+) -> types.InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+    for text, block_type in block_types:
+        builder.add(
+            types.InlineKeyboardButton(
+                text=text, callback_data=BlockTypeCB(type=block_type).pack()
+            )
+        )
+    
+    builder.adjust(1)
+    return builder.as_markup()
+
+
+def get_factors_keyboard(
+    chat_id: int, block_types: list[tuple[str, Report.Type]],
+) -> types.InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+    for text, block_type in block_types:
+        builder.add(
+            types.InlineKeyboardButton(
+                text=text, callback_data=FactorCB(type=block_type).pack()
+            )
+        )
+    
     builder.adjust(1)
     return builder.as_markup()
 
@@ -69,66 +105,27 @@ def get_service_keyboard(
     return builder.as_markup()
 
 
-def get_extra_service_keyboard(
-    chat_id: int,
-    extra_services: list[tuple[str, Report.ExtraService]],
-    other: str,
-    enter: str,
-) -> types.InlineKeyboardMarkup:
-    builder = InlineKeyboardBuilder()
-    report = get_current_user_report(chat_id)
-
-    for text, extra_service in extra_services:
-        status = "✅" if extra_service in report.extra_services else "❌"
-        builder.add(
-            types.InlineKeyboardButton(
-                text=f"{text} {status}",
-                callback_data=ExtraServiceCB(action="", service=extra_service).pack(),
-            )
-        )
-    for id, extra_service in enumerate(report.other_extra_services):
-        builder.add(
-            types.InlineKeyboardButton(
-                text=extra_service,
-                callback_data=OtherExtraServiceCB(action="delete", id=id).pack(),
-            )
-        )
-
-    # builder.add(
-    #     types.InlineKeyboardButton(
-    #         text=other + "➕",
-    #         callback_data=OtherExtraServiceCB(action="add", id=-1).pack(),
-    #     )
-    # )
-
-    builder.add(
-        types.InlineKeyboardButton(
-            text=enter,
-            callback_data=ExtraServiceCB(
-                action="enter", service=Report.ExtraService.UNKNOWN
-            ).pack(),
-        )
-    )
-
-    builder.adjust(1)
-    return builder.as_markup()
-
-
 def get_cleaning_node_keyboard(
     chat_id: int,
     cleaning_nodes: list[CleaningNode],
     other: str,
     enter: str,
+    page: int = 1,
+    total_pages: int = 1,
 ) -> types.InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
 
     room = get_current_user_room(chat_id)
+    
+    # Добавляем кнопки для узлов обслуживания
     for index, cleaning_node in enumerate(cleaning_nodes):
         status = [cleaning_node, True] in room.default_cleaning_nodes
         status_text = "✅" if status else "❌"
+        adjusted_index = index + 7 if page == 2 else index
         callback_data = CleaningNodeCB(
             action="delete" if status else "add",
-            index=index,
+            index=adjusted_index,
+            page=page,
             type=cleaning_node.type,
         )
         builder.add(
@@ -138,6 +135,7 @@ def get_cleaning_node_keyboard(
             )
         )
 
+    # Добавляем кнопки для пользовательских узлов (если они есть на текущей странице)
     for index, cleaning_node in enumerate(room.cleaning_nodes):
         if cleaning_node in cleaning_nodes:
             continue
@@ -153,6 +151,7 @@ def get_cleaning_node_keyboard(
             )
         )
 
+    # Добавляем кнопку "Другое"
     builder.add(
         types.InlineKeyboardButton(
             text=other + "➕",
@@ -164,17 +163,139 @@ def get_cleaning_node_keyboard(
         )
     )
 
+    # Добавляем кнопки пагинации, если нужно
+    if total_pages > 1:
+        pagination_buttons = []
+        if page > 1:
+            pagination_buttons.append(
+                types.InlineKeyboardButton(
+                    text="⬅️",
+                    callback_data=CleaningNodeCB(
+                        action="page",
+                        page=page-1,
+                        index=-2,
+                        type=CleaningNode.Type.UNKNOWN
+                    ).pack(),
+                )
+            )
+        if page < total_pages:
+            pagination_buttons.append(
+                types.InlineKeyboardButton(
+                    text="➡️",
+                    callback_data=CleaningNodeCB(
+                        action="page",
+                        page=page+1,
+                        index=-2,
+                        type=CleaningNode.Type.UNKNOWN
+                    ).pack(),
+                )
+            )
+        
+        if pagination_buttons:
+            builder.row(*pagination_buttons)
+
+    # Добавляем кнопку подтверждения
     builder.add(
         types.InlineKeyboardButton(
             text=enter,
             callback_data=CleaningNodeCB(
-                action="enter", index=-1, type=CleaningNode.Type.UNKNOWN
+                action="enter", 
+                index=-1, 
+                type=CleaningNode.Type.UNKNOWN
             ).pack(),
         )
     )
+    
     builder.adjust(1)
     return builder.as_markup()
 
+
+def get_check_list_node_keyboard(
+    chat_id: int,
+    cleaning_nodes: list[CleaningNode],
+    other: str,
+    enter: str
+) -> types.InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+    room = get_current_user_room(chat_id)
+    
+    for index, cleaning_node in enumerate(cleaning_nodes):
+        # Получаем активность из default_cleaning_nodes
+        is_active = False
+        extra_factors = None
+        
+        for node, active in room.default_cleaning_nodes:
+            if node.name == cleaning_node.name:
+                is_active = active
+                extra_factors = node.extra_factors
+                break
+
+        # Определяем статус
+        if is_active:
+            if extra_factors == "immediate":
+                status_text = "❗️"
+                action = "delete"
+            else:  # normal или None
+                status_text = "📣"
+                action = "immte"
+        else:
+            status_text = "❌"
+            action = "normal"
+
+        callback_data = CheckListNodeCB(
+            action=action,
+            index=index,
+            type=cleaning_node.type,
+            node_name=cleaning_node.name,
+        )
+        builder.add(types.InlineKeyboardButton(
+            text=f"{cleaning_node.button_text} {status_text}",
+            callback_data=callback_data.pack(),
+        ))
+
+
+    # Добавляем кнопки для пользовательских узлов (если они есть на текущей странице)
+    for index, cleaning_node in enumerate(room.cleaning_nodes):
+        if cleaning_node in cleaning_nodes:
+            continue
+        callback_data = CleaningNodeCB(
+            action="delete",
+            index=index,
+            type=cleaning_node.type,
+        )
+        builder.add(
+            types.InlineKeyboardButton(
+                text=f"{cleaning_node.name}",
+                callback_data=callback_data.pack(),
+            )
+        )
+
+    # Добавляем кнопку "Другое"
+    builder.add(
+        types.InlineKeyboardButton(
+            text=other + "➕",
+            callback_data=CleaningNodeCB(
+                action="add_other",
+                index=-1,
+                type=CleaningNode.Type.UNKNOWN,
+            ).pack(),
+        )
+    )
+
+    # Добавляем кнопку подтверждения
+    builder.add(
+        types.InlineKeyboardButton(
+            text=enter,
+            callback_data=CleaningNodeCB(
+                action="enter", 
+                index=-1, 
+                type=CleaningNode.Type.UNKNOWN
+            ).pack(),
+        )
+    )
+    
+    builder.adjust(1)
+    return builder.as_markup()
 
 def get_yes_no_keyboard(chat_id: int, yes: str, no: str) -> types.InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
@@ -182,38 +303,192 @@ def get_yes_no_keyboard(chat_id: int, yes: str, no: str) -> types.InlineKeyboard
     builder.add(types.InlineKeyboardButton(text=no, callback_data="no"))
     return builder.as_markup()
 
+# Функция для создания клавиатуры с кнопкой "Пропустить"
+def get_skip_keyboard(chat_id: int, skip: str) -> types.InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+    builder.add(types.InlineKeyboardButton(text=skip, callback_data="skip"))
+    return builder.as_markup()
 
-def get_factors_keyboard(
-    chat_id: int, factors: list[tuple[str, Report.Factor]], enter: str
+
+def get_master_keyboard(
+    chat_id: int, 
+    masters: list[dict],  # Изменяем на список словарей
+    other: str,
+    skip: str,
 ) -> types.InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
-    report = get_current_user_report(chat_id)
-    for i, (factor_button_text, factor) in enumerate(factors):
-        status = factor in report.work_factors
-        status_text = "✅" if status else "❌"
-        action = "delete" if status else "add"
-        callback_data = FactorCB(action=action, factor=factor, index=i).pack()
+    for master_data in masters:  # Работаем со словарями
         builder.add(
             types.InlineKeyboardButton(
-                text=f"{factor_button_text} {status_text}", callback_data=callback_data
+                text=master_data["button_text"], 
+                callback_data=MasterCB(name=master_data["name"]).pack()
             )
         )
 
     builder.add(
         types.InlineKeyboardButton(
-            text=f"{enter}",
-            callback_data=FactorCB(
-                action="enter", factor=Report.Factor.UNKNOWN, index=-1
-            ).pack(),
+            text=other,
+            callback_data="other"
+        )
+    )
+
+    builder.add(
+        types.InlineKeyboardButton(
+            text=skip,
+            callback_data="skip"
         )
     )
     builder.adjust(1)
     return builder.as_markup()
 
 
+def check_node_completeness(
+        node, 
+        room, 
+        report
+        ) -> tuple[bool, str]:
+    missing = []
+    
 
-# Функция для создания клавиатуры с кнопкой "Пропустить"
-def get_skip_keyboard() -> types.InlineKeyboardMarkup:
+    # Проверка видео в зависимости от типа сервиса
+    service_name = report.service.name
+    if service_name == "MAINTENANCE":
+        if node.photo_before is None or node.photo_after is None:
+            missing.append('📷')
+        if not room.room_video_id or room.room_video_id.strip() == '':
+            missing.append('📹')
+        if not room.room_comment or room.room_comment.strip() == '':
+            missing.append('💬')
+        # if not room.master or room.master.strip() == '':
+        #     missing.append('👨🏻‍🔧')
+
+
+            
+    elif service_name == "SERVICE":
+        if node.photo_before is None or node.photo_after is None:
+            missing.append('📷')
+        if not node.video_id or node.video_id.strip() == '':
+            missing.append('📹')
+        if not node.comment or node.comment.strip() == '':
+            missing.append('💬')
+        # if not room.master or room.master.strip() == '':
+        #     missing.append('👨🏻‍🔧')
+
+
+    elif service_name == "CHECK_LIST":
+        if node.photo_before is None:
+            missing.append('📷')    
+        # if not room.master or room.master.strip() == '':
+        #     missing.append('👨🏻‍🔧')
+
+    return (len(missing) == 0, ' '.join(missing))
+
+from aiogram.utils.i18n import gettext as _
+
+
+
+def create_incomplete_nodes_keyboard(
+        room,
+        report,
+        enter: str,
+) -> types.InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
-    builder.add(types.InlineKeyboardButton(text=("Skip"), callback_data="skip"))
+
+    # Обрабатываем default nodes (кортежи (CleaningNode, bool))
+    for node, is_active in room.default_cleaning_nodes:
+        if not is_active:
+            continue
+            
+        is_complete, missing_emojis = check_node_completeness(node, room, report)
+        if not is_complete:
+            
+            # Определяем тип недостающих данных
+            missing_types = []
+            if '📷' in missing_emojis:
+                missing_types.append('p')
+            if '📹' in missing_emojis:
+                missing_types.append('v')
+            if '💬' in missing_emojis:
+                missing_types.append('c')
+            # if '👨🏻‍🔧' in missing_emojis:
+            #     missing_types.append('m')
+            
+            missing_type = '_'.join(missing_types) if missing_types else 'none'
+            
+            # Переводим название узла
+            translated_node = _(node.button_text)
+            btn_text = f"{translated_node} [{missing_emojis}]"
+            builder.row(types.InlineKeyboardButton(
+                text=btn_text,
+                callback_data=IncompleteNodeCB(
+                    # room_type=room.room_type,
+                    node_name=node.name,  # Оставляем оригинальное имя для callback_data
+                    missing_type=missing_type
+                ).pack()
+            ))
+
+            
+
+    # Обрабатываем custom nodes (CleaningNode)
+    for node in room.cleaning_nodes:
+        is_complete, missing_emojis = check_node_completeness(node, room, report)
+        if not is_complete:
+            
+            # Определяем тип недостающих данных
+            missing_types = []
+            if '📷' in missing_emojis:
+                missing_types.append('p')
+            if '📹' in missing_emojis:
+                missing_types.append('v')
+            if '💬' in missing_emojis:
+                missing_types.append('c')
+            # if '👨🏻‍🔧' in missing_emojis:
+            #     missing_types.append('m')
+            
+            missing_type = '_'.join(missing_types) if missing_types else 'none'
+            
+            # Переводим название узла
+            translated_node = _(node.name)
+            btn_text = f"{translated_node} [{missing_emojis}]"
+            builder.row(types.InlineKeyboardButton(
+                text=btn_text,
+                callback_data=IncompleteNodeCB(
+                    # room_type=room.room_type,
+                    node_name=node.name,  # Оставляем оригинальное имя для callback_data
+                    missing_type=missing_type
+                ).pack()
+            ))
+
+    # Добавляем кнопки для мастера
+    add_master_text = _("Add room master")
+    master_name = room.master if room.master else _("Master")
+    
+    # Текстовая кнопка (некликабельная)
+    builder.row(types.InlineKeyboardButton(
+        text=add_master_text + '👨🏻‍🔧:',
+        callback_data="ignore"
+        )
+    )
+    
+    # Активная кнопка мастера
+    builder.row(types.InlineKeyboardButton(
+        text=master_name,
+        callback_data="add_master"
+        )
+    )
+
+    # Информационная кнопка
+    builder.row(types.InlineKeyboardButton(
+        text=_("Do you want to add room?"),
+        callback_data="ignore"
+        )
+    )
+    
+
+    # Кнопки да/нет в одном ряду
+    builder.row(
+        types.InlineKeyboardButton(text=_("yes"), callback_data="yes"),
+        types.InlineKeyboardButton(text=_("no"), callback_data="no")
+    )
+
     return builder.as_markup()

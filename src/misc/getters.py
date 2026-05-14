@@ -4,7 +4,7 @@ import dateparser
 
 from loader import users
 
-
+from typing import Optional, Tuple
 from src.models.room import Room
 from src.models.report import Report
 
@@ -43,8 +43,6 @@ def get_address(text: str | None) -> str:
     if text is None:
         return ""
     return text
-
-
 
 
 def get_service(text: str | None) -> str:

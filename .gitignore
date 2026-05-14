@@ -52,7 +52,8 @@ coverage.xml
 .pytest_cache/
 
 # Translations
-*.mo
+messages_po(ex).txt
+# *.mo
 *.pot
 
 # Django stuff:
@@ -142,3 +143,5 @@ client_secrets.json
 credentials.json
 settings.yaml
 token.json
+service-account.json
+folder.json

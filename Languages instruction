@@ -19,4 +19,3 @@ pybabel extract . -o locales/messages.pot
 pybabel update -d locales -D messages -i locales/messages.pot
 3. Вручную делаем переводы, а потом Собираем
 pybabel compile -d locales -D messages
-

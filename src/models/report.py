@@ -3,7 +3,11 @@ from datetime import datetime
 from .room import Room
 from .client import Client
 from enum import IntEnum, auto
+from typing import List, Tuple
+from enum import Enum
 
+
+from typing import Optional, BinaryIO
 
 @dataclass
 class Report:
@@ -41,6 +45,21 @@ class Report:
         def for_button(self, text: str) -> tuple[str, IntEnum]:
             return (text, self)
 
+
+    class Type(str, Enum):
+        UNKNOWN = "Unknown"
+        FULL_MAINTENANCE= "Full Maintenance"
+        SUPPORT = "Support"
+        OTHER = "Other"
+
+        def __str__(self) -> str:
+            return str(self.value)
+
+        def for_button(self, text: str) -> Tuple[str, ...]:
+            return (text, self)
+
+
+
     class Factor(IntEnum):
         UNKNOWN = auto()
         DIFFICULT_ACCESS_TO_UNITS = auto()
@@ -75,8 +94,6 @@ class Report:
         self.rooms.append(Room())
 
     def add_factor(self, factor: Factor) -> None:
-        if factor in self.work_factors:
-            return
         self.work_factors.append(factor)
 
     def pop_factor(self, factor: Factor) -> None:
@@ -88,6 +105,25 @@ class Report:
 
     def clear_working_factors(self):
         self.work_factors.clear()
+
+
+
+    def create_custom_nodes_list(master_names: list[str]):
+        """
+        Создает список словарей для мастеров
+        """
+        return [
+            {
+                "name": name,
+                "button_text": name,
+                "type": "DEFAULT"
+            }
+            for name in master_names
+        ]
+            
+    def get_custom_nodes_list():
+        return ["Alex W", "John Doe", "Jane Smith"]  # Пример списка мастеров
+
 
     def get_extra_services_descriptions(self) -> list[str]:
         extra_sevices_str = []
@@ -104,7 +140,7 @@ class Report:
 
         return work_factors_str
 
-    async def dict_with_binary(self, bot) -> dict:
+    async def dict_with_binary(self, bot, _) -> dict:  # Добавляем параметр _
         return {
             "Outline": {
                 "date": self.date,
@@ -115,16 +151,16 @@ class Report:
                     "text": self.service.get_description_text(),
                     "points": self.service.get_description_points(),
                 },
-                "performed_service": str(self.service),
+                "performed_service": _(str(self.service)), # Переводим услугу
+                "report_service": str(self.service),
                 "extra_services": self.get_extra_services_descriptions(),
                 "work_factors": self.get_work_factors_descriptions(),
             },
             "Rooms": {
                 "number_of_rooms": len(self.rooms),
-                "rooms_list": [await room.dict_with_binary(bot) for room in self.rooms],
+                "rooms_list": [await room.dict_with_binary(bot, _) for room in self.rooms],  # Передаем _ дальше
             },
         }
-
 
 SERVICE_NAMES = {
     Report.Service.UNKNOWN: "",

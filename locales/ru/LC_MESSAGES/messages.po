@@ -1,14 +1,10 @@
-# Russian translations for PROJECT.
-# Copyright (C) 2025 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
-#
+# =============== ТЕКСТЫ ДЛЯ PDF ОТЧЕТА ===============
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-07 22:37+0500\n"
-"PO-Revision-Date: 2025-03-07 20:09+0500\n"
+"POT-Creation-Date: 2025-12-23 02:05+0500\n"
+"PO-Revision-Date: 2025-11-14 03:30+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,43 +15,190 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: src/handlers/callbacks/users/form.py:41 src/states/setters.py:34
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru\n"
+
+#: src/handlers/callbacks/users/admin.py:25
+#: src/handlers/callbacks/users/admin.py:65
+#: src/handlers/message/users/admin.py:26
+msgid "📋 Nodes list:"
+msgstr "📋 Список нод:"
+
+#: src/handlers/callbacks/users/admin.py:37
+#: src/handlers/callbacks/users/admin.py:88
+#: src/handlers/message/users/admin.py:42
+msgid "👨‍🔧 Masters list:"
+msgstr "👨‍🔧 Список мастеров:"
+
+#: src/handlers/callbacks/users/admin.py:46
+msgid "✅ Exited admin panel"
+msgstr "✅ Выход из админ панели"
+
+#: src/handlers/callbacks/users/admin.py:55
+msgid "✍️ Enter new node name:"
+msgstr "✍️ Введите название новой ноды:"
+
+#: src/handlers/callbacks/users/admin.py:63
+msgid "Node '{node_text}' deleted"
+msgstr "Нода '{node_text}' удалена"
+
+#: src/handlers/callbacks/users/admin.py:69
+msgid "❌ Error deleting node"
+msgstr "❌ Ошибка при удалении ноды"
+
+#: src/handlers/callbacks/users/admin.py:78
+msgid "✍️ Enter new master name:"
+msgstr "✍️ Введите имя нового мастера:"
+
+#: src/handlers/callbacks/users/admin.py:86
+msgid "Master '{master_text}' deleted"
+msgstr "Мастер '{master_text}' удален"
+
+#: src/handlers/callbacks/users/admin.py:92
+msgid "❌ Error deleting master"
+msgstr "❌ Ошибка при удалении мастера"
+
+#: src/handlers/callbacks/users/form.py:68
+msgid "An error occurred. Please try again."
+msgstr "Произошла ошибка. Попробуйте ещё раз."
+
+#: src/handlers/callbacks/users/form.py:81 src/states/setters.py:33
 msgid "Enter client address:"
 msgstr "Введите адрес клиента:"
 
-#: src/handlers/callbacks/users/form.py:122
+#: src/handlers/callbacks/users/form.py:119
 msgid "Enter room"
 msgstr "Выберите комнату"
 
-#: src/handlers/callbacks/users/form.py:131
+#: src/handlers/callbacks/users/form.py:132
+#: src/handlers/callbacks/users/form.py:166
+#: src/handlers/callbacks/users/form.py:198
+#: src/handlers/message/users/form.py:93 src/handlers/message/users/form.py:129
 msgid "Unexpected service type"
 msgstr "Неожиданный тип услуги"
 
-#: src/handlers/callbacks/users/form.py:144
-msgid "Please type other extra service"
-msgstr "Пожалуйста введите иную дополнительную услугу"
+#: src/handlers/callbacks/users/form.py:151
+msgid "Enter block"
+msgstr "Введите блок"
 
-#: src/handlers/callbacks/users/form.py:260
+#: src/handlers/callbacks/users/form.py:184
+msgid "Enter work factors"
+msgstr "Введите факторы работы"
+
+#: src/handlers/callbacks/users/form.py:263
+msgid "An error occurred while adding the node"
+msgstr "Произошла ошибка при добавлении узла"
+
+#: src/handlers/callbacks/users/form.py:303
+#: src/handlers/callbacks/users/form.py:442
 msgid "Please type other cleaning node"
 msgstr "Пожалуйста введите иной узел чистки"
 
-#: src/handlers/callbacks/users/form.py:278
+#: src/handlers/callbacks/users/form.py:338
+#: src/handlers/callbacks/users/form.py:372
+#: src/handlers/callbacks/users/form.py:408
+msgid "Room not found"
+msgstr "Комната не найдена"
+
+#: src/handlers/callbacks/users/form.py:344
+#: src/handlers/callbacks/users/form.py:378
+#: src/handlers/callbacks/users/form.py:414
+#: src/handlers/message/users/form.py:240
+#: src/handlers/message/users/form.py:272
+#: src/handlers/message/users/form.py:300
+#: src/handlers/message/users/form.py:351
+msgid "Node not found"
+msgstr "Узел не найден"
+
+#: src/handlers/callbacks/users/form.py:463
 msgid "You didn't selected cleaning nodes"
 msgstr "Вы не выбрали узлы чистки"
 
-#: src/handlers/callbacks/users/form.py:332
-#: src/handlers/message/users/form.py:162
-#: src/handlers/message/users/form.py:185 src/states/setters.py:136
-msgid "Send photo AFTER for"
-msgstr "Прикрепите 1 фото ПОСЛЕ для"
+#: src/handlers/callbacks/users/form.py:486
+#: src/handlers/callbacks/users/form.py:706
+#: src/handlers/message/users/form.py:148 src/states/setters.py:126
+msgid "Send photo BEFORE for {}"
+msgstr "Прикрепите 1 фото ДО для {}"
 
-#: src/handlers/callbacks/users/form.py:342
+#: src/handlers/callbacks/users/form.py:505
+#: src/handlers/message/users/form.py:161
+msgid "Now write a recommendation for the photo"
+msgstr "Теперь напишите рекомендацию к фотографии"
+
+#: src/handlers/callbacks/users/form.py:517
+#: src/handlers/message/users/form.py:173
+msgid "Now write a recommendation for the room"
+msgstr "Теперь напишите рекомендацию к комнате"
+
+#: src/handlers/callbacks/users/form.py:522
+#: src/handlers/callbacks/users/form.py:554
+#: src/handlers/message/users/form.py:178
+#: src/handlers/message/users/form.py:202 src/states/setters.py:136
+msgid "Send photo AFTER for {}"
+msgstr "Прикрепите 1 фото ПОСЛЕ для {}"
+
+#: src/handlers/callbacks/users/form.py:619
+msgid "Add a photo 📷"
+msgstr "Добавить фото 📷"
+
+#: src/handlers/callbacks/users/form.py:630
+msgid "Add video 📹"
+msgstr "Добавить видео 📹"
+
+#: src/handlers/callbacks/users/form.py:640
+msgid "Add a comment 💬"
+msgstr "Добавить комментарий 💬"
+
+#: src/handlers/callbacks/users/form.py:650 src/keyboards/inline/kbd.py:109
+#: src/keyboards/inline/kbd.py:508
+msgid "Skip"
+msgstr "Пропустить"
+
+#: src/handlers/callbacks/users/form.py:667
+msgid ""
+"Node selected: {}\n"
+"What would you like to add?"
+msgstr ""
+"Выбран узел: {}\n"
+"Что вы хотите добавить?"
+
+#: src/handlers/callbacks/users/form.py:673
+msgid ""
+"Node selected: {}\n"
+"Nothing to add (no missing data)"
+msgstr ""
+"Выбран узел: {}\n"
+"Добавлять нечего (нет пропущенных данных)"
+
+#: src/handlers/callbacks/users/form.py:697
+msgid "Please enter a comment:"
+msgstr "Пожалуйста, введите комментарий:"
+
+#: src/handlers/callbacks/users/form.py:717
+msgid ""
+"Please send video\n"
+" The maximum size is 20 MB:"
+msgstr ""
+"Пожалуйста, отправьте видео\n"
+"Максимальный размер - 20 МБ:"
+
+#: src/handlers/callbacks/users/form.py:753
+msgid "Send master name"
+msgstr "Отправить имя мастера"
+
+#: src/handlers/callbacks/users/form.py:797
 msgid "Generating..."
 msgstr "Генерирую..."
 
-#: src/handlers/callbacks/users/form.py:346
+#: src/handlers/callbacks/users/form.py:806
 msgid "Thank you for your work!"
 msgstr "Спасибо за вашу работу!"
+
+#: src/handlers/callbacks/users/form.py:820
+msgid "Need report in Russian?"
+msgstr "Нужен отчет на русском языке?"
 
 #: src/handlers/message/users/form.py:22
 msgid "Incorrect Name"
@@ -77,253 +220,167 @@ msgstr "Некорректный адрес"
 msgid "Incorrect room"
 msgstr "Некорректная комната"
 
-#: src/handlers/message/users/form.py:104
+#: src/handlers/message/users/form.py:102
 msgid "Cleaning node name is too long! Should be < 31"
+msgstr "Имя узла очистки слишком длинное! Должно быть < 31."
+
+#: src/handlers/message/users/form.py:248
+msgid "Photo BEFORE add. Send photo AFTER for"
+msgstr "Фото ДО добавлено. Отправьте фото ПОСЛЕ для"
+
+#: src/handlers/message/users/form.py:250
+msgid "BEFORE photo added!"
+msgstr "Фото ДО добавлено!"
+
+#: src/handlers/message/users/form.py:279
+msgid "Photos saved! Node data updated."
+msgstr "Фотографии сохранены! Данные узла обновлены."
+
+#: src/handlers/message/users/form.py:316
+msgid "Comment saved! Node data updated."
+msgstr "Комментарий сохранён! Данные узла обновлены."
+
+#: src/handlers/message/users/form.py:335
+msgid ""
+"The video is too large! The maximum size is 20 MB.\n"
+"Please compress the video and resubmit it."
 msgstr ""
+"Видео слишком большое! Максимальный размер - 20 МБ.\n"
+"Пожалуйста, сожмите видео и отправьте заново."
 
-#: src/handlers/message/users/form.py:133 src/states/setters.py:128
-msgid "Send photo BEFORE for"
-msgstr "Прикрепите 1 фото ДО для"
+#: src/handlers/message/users/form.py:366
+msgid "Video ID saved! Video will be downloaded when report is generated."
+msgstr "Идентификатор видео сохранён! Видео будет загружено после создания отчёта."
 
-#: src/handlers/message/users/form.py:147
-msgid "Now write a recommendation for the photo"
-msgstr "Теперь напишите рекомендацию к фотографии"
+#: src/handlers/message/users/form.py:387
+msgid "Room master saved!"
+msgstr "Мастер для комнаты сохранён!"
 
-#: src/handlers/message/users/form.py:158
-msgid "Now write a recommendation for the room"
-msgstr "Теперь напишите рекомендацию к комнате"
-
-#: src/handlers/message/users/message.py:21
+# =============== ОБРАБОТЧИКИ СООБЩЕНИЙ ===============
+#: src/handlers/message/users/message.py:27
 msgid "Hi! {first_name} {last_name}"
 msgstr "Привет! {first_name} {last_name}"
 
-#: src/keyboards/inline/kbd.py:18
+#: src/keyboards/inline/form.py:559
+msgid "Add room master"
+msgstr "Добавить мастера для комнаты"
+
+#: src/keyboards/inline/form.py:560
+msgid "Master"
+msgstr "Мастер"
+
+#: src/keyboards/inline/form.py:578 src/states/setters.py:151
+msgid "Do you want to add room?"
+msgstr "Вы хотите добавить комнату или другое место проведения работ?"
+
+#: src/keyboards/inline/form.py:586
+msgid "yes"
+msgstr "Да"
+
+#: src/keyboards/inline/form.py:587
+msgid "no"
+msgstr "Нет"
+
+#: src/handlers/message/users/admin.py:21
+msgid "✅ Node '{node_text}' added!"
+msgstr "✅ Нода '{node_text}' добавлена!"
+
+#: src/handlers/message/users/admin.py:23
+msgid "❌ Failed to add node. It may already exist."
+msgstr "❌ Не удалось добавить ноду. Возможно, она уже существует."
+
+#: src/handlers/message/users/admin.py:37
+msgid "✅ Master '{master_text}' added!"
+msgstr "✅ Мастер '{master_text}' добавлен!"
+
+#: src/handlers/message/users/admin.py:39
+msgid "❌ Failed to add master. He may already exist."
+msgstr "❌ Не удалось добавить мастера. Возможно, он уже существует."
+
+
+# =============== КЛАВИАТУРЫ ===============
+
+#: src/handlers/message/users/message.py:43
+msgid "🔧 Admin panel"
+msgstr "🔧 Админ панель"
+
+#: src/keyboards/inline/admin.py:38
+msgid "➕ Add Node"
+msgstr "➕ Добавить ноду"
+
+#: src/keyboards/inline/admin.py:39
+msgid "👨‍🔧 Add Master"
+msgstr "👨‍🔧 Добавить мастера"
+
+#: src/keyboards/inline/admin.py:40
+msgid "❌ Exit"
+msgstr "❌ Выход"
+
+#: src/keyboards/inline/admin.py:56
+msgid "❌ {node}"
+msgstr "❌ {node}"
+
+#: src/keyboards/inline/admin.py:61 src/keyboards/inline/admin.py:81
+msgid "➕ Add"
+msgstr "➕ Добавить"
+
+#: src/keyboards/inline/admin.py:76
+msgid "❌ {master}"
+msgstr "❌ {master}"
+
+#: src/keyboards/inline/kbd.py:25
 msgid "Select room type:"
 msgstr "Выберите тип комнаты:"
 
-#: src/keyboards/inline/kbd.py:22
+#: src/keyboards/inline/kbd.py:29
 msgid "Kitchen"
 msgstr "Кухня"
 
-#: src/keyboards/inline/kbd.py:23
+#: src/keyboards/inline/kbd.py:30
 msgid "Bedroom"
 msgstr "Спальня"
 
-#: src/keyboards/inline/kbd.py:24
+#: src/keyboards/inline/kbd.py:31
 msgid "Living Room"
 msgstr "Гостиная"
 
-#: src/keyboards/inline/kbd.py:25
+#: src/keyboards/inline/kbd.py:32
 msgid "Master bedroom"
 msgstr "Главная спальня"
 
-#: src/keyboards/inline/kbd.py:26
+#: src/keyboards/inline/kbd.py:33
 msgid "Kids bedroom"
 msgstr "Детская спальня"
 
-#: src/keyboards/inline/kbd.py:27
+#: src/keyboards/inline/kbd.py:34
 msgid "Guest bedroom"
 msgstr "Гостевая спальня"
 
-#: src/keyboards/inline/kbd.py:28
+#: src/keyboards/inline/kbd.py:35
 msgid "Maids bedroom"
 msgstr "Спальня горничной"
 
-#: src/keyboards/inline/kbd.py:29
+#: src/keyboards/inline/kbd.py:36
 msgid "Cabinet room"
 msgstr "Кабинетная комната"
 
-#: src/keyboards/inline/kbd.py:30
+#: src/keyboards/inline/kbd.py:37
 msgid "Gym"
 msgstr "Спортзал"
 
-#: src/keyboards/inline/kbd.py:32 src/keyboards/inline/kbd.py:69
-#: src/keyboards/inline/kbd.py:130 src/keyboards/inline/kbd.py:166
-#: src/keyboards/inline/kbd.py:204 src/keyboards/inline/kbd.py:266
-#: src/keyboards/inline/kbd.py:310
+#: src/keyboards/inline/kbd.py:39 src/keyboards/inline/kbd.py:64
+#: src/keyboards/inline/kbd.py:128 src/keyboards/inline/kbd.py:150
+#: src/keyboards/inline/kbd.py:170 src/keyboards/inline/kbd.py:190
+#: src/keyboards/inline/kbd.py:208 src/keyboards/inline/kbd.py:226
+#: src/keyboards/inline/kbd.py:254 src/keyboards/inline/kbd.py:280
+#: src/keyboards/inline/kbd.py:300 src/keyboards/inline/kbd.py:328
+#: src/keyboards/inline/kbd.py:355 src/keyboards/inline/kbd.py:383
+#: src/keyboards/inline/kbd.py:410 src/keyboards/inline/kbd.py:433
+#: src/keyboards/inline/kbd.py:456 src/keyboards/inline/kbd.py:507
 msgid "Other"
 msgstr "Иное"
 
-#: src/keyboards/inline/kbd.py:39 src/keyboards/inline/kbd.py:101
-msgid "Choose service:"
-msgstr "Выберите выполненные услуги:"
-
-#: src/keyboards/inline/kbd.py:43 src/keyboards/inline/kbd.py:105
-msgid "Service"
-msgstr "Сервис"
-
-#: src/keyboards/inline/kbd.py:44 src/keyboards/inline/kbd.py:106
-msgid "Maintenance"
-msgstr "Мойка"
-
-#: src/keyboards/inline/kbd.py:45 src/keyboards/inline/kbd.py:107
-msgid "Check list"
-msgstr "Чек лист"
-
-#: src/keyboards/inline/kbd.py:54 src/keyboards/inline/kbd.py:115
-msgid "Choose extra services"
-msgstr "Какие дополнительные услуги были оказаны?"
-
-#: src/keyboards/inline/kbd.py:59 src/keyboards/inline/kbd.py:120
-msgid "Cold Fog Machine Disinfections"
-msgstr "Обработка против грибка"
-
-#: src/keyboards/inline/kbd.py:62 src/keyboards/inline/kbd.py:123
-msgid "New Polyester Filters Installation"
-msgstr "Установка/Замена фильтров"
-
-#: src/keyboards/inline/kbd.py:67 src/keyboards/inline/kbd.py:128
-msgid "Repair Works"
-msgstr "Ремонт"
-
-#: src/keyboards/inline/kbd.py:70 src/keyboards/inline/kbd.py:131
-#: src/keyboards/inline/kbd.py:167 src/keyboards/inline/kbd.py:205
-#: src/keyboards/inline/kbd.py:267 src/keyboards/inline/kbd.py:311
-#: src/keyboards/inline/kbd.py:332 src/keyboards/inline/kbd.py:353
-msgid "Enter"
-msgstr "Готово"
-
-#: src/keyboards/inline/kbd.py:77 src/keyboards/inline/kbd.py:213
-msgid "Select client is an owner or a tenant"
-msgstr "Укажите клиент собственник или арендатор"
-
-#: src/keyboards/inline/kbd.py:82 src/keyboards/inline/kbd.py:218
-msgid "Owner"
-msgstr "Владелец"
-
-#: src/keyboards/inline/kbd.py:85 src/keyboards/inline/kbd.py:221
-msgid "Tenant"
-msgstr "Арендатор"
-
-#: src/keyboards/inline/kbd.py:95
-msgid "Yes"
-msgstr "Да"
-
-#: src/keyboards/inline/kbd.py:95
-msgid "No"
-msgstr "Нет"
-
-#: src/keyboards/inline/kbd.py:137 src/keyboards/inline/kbd.py:175
-msgid "Choose maintenance nodes"
-msgstr "Выберите узлы мойки"
-
-#: src/keyboards/inline/kbd.py:142 src/keyboards/inline/kbd.py:180
-#: src/states/setters.py:111
-msgid "grills"
-msgstr "Решётки вентиляции"
-
-#: src/keyboards/inline/kbd.py:145 src/keyboards/inline/kbd.py:183
-#: src/states/setters.py:112
-msgid "duct"
-msgstr "Воздуховод"
-
-#: src/keyboards/inline/kbd.py:148 src/keyboards/inline/kbd.py:186
-#: src/states/setters.py:113
-msgid "pan"
-msgstr "Поддон"
-
-#: src/keyboards/inline/kbd.py:152 src/keyboards/inline/kbd.py:190
-#: src/states/setters.py:114
-msgid "radiator"
-msgstr "Радиатор"
-
-#: src/keyboards/inline/kbd.py:155 src/keyboards/inline/kbd.py:193
-#: src/states/setters.py:115
-msgid "filter"
-msgstr "Фильтр"
-
-#: src/keyboards/inline/kbd.py:158 src/keyboards/inline/kbd.py:196
-#: src/states/setters.py:116
-msgid "blades"
-msgstr "Крыльчатки мотора"
-
-#: src/keyboards/inline/kbd.py:162 src/keyboards/inline/kbd.py:200
-#: src/states/setters.py:117
-msgid "ceiling area"
-msgstr "Подпотолочное пространство"
-
-#: src/keyboards/inline/kbd.py:230
-msgid "Choose cleaning nodes"
-msgstr "Выберите узлы чистки"
-
-#: src/keyboards/inline/kbd.py:235 src/keyboards/inline/kbd.py:279
-#: src/states/setters.py:72
-msgid "Actuator"
-msgstr "Актуатор"
-
-#: src/keyboards/inline/kbd.py:238 src/keyboards/inline/kbd.py:282
-#: src/states/setters.py:75
-msgid "Motor"
-msgstr "Двигатель"
-
-#: src/keyboards/inline/kbd.py:241 src/keyboards/inline/kbd.py:285
-#: src/states/setters.py:78
-msgid "Isolation fixing"
-msgstr "Замена изоляции"
-
-#: src/keyboards/inline/kbd.py:245 src/keyboards/inline/kbd.py:289
-#: src/states/setters.py:82
-msgid "Electronic fasteners tightening"
-msgstr "Протяжка электронных крепежей"
-
-#: src/keyboards/inline/kbd.py:249 src/keyboards/inline/kbd.py:293
-#: src/states/setters.py:86
-msgid "Level fixing"
-msgstr "Изменение уровня уклона блока"
-
-#: src/keyboards/inline/kbd.py:252 src/keyboards/inline/kbd.py:296
-#: src/states/setters.py:89
-msgid "Compressor"
-msgstr "Замена компрессора"
-
-#: src/keyboards/inline/kbd.py:256 src/keyboards/inline/kbd.py:300
-#: src/states/setters.py:93
-msgid "Capacitor replacement(outside unit)"
-msgstr "Замена конденсатора блока"
-
-#: src/keyboards/inline/kbd.py:260 src/keyboards/inline/kbd.py:304
-#: src/states/setters.py:97
-msgid "Fan motor"
-msgstr "Замена двигателя вентилятора"
-
-#: src/keyboards/inline/kbd.py:263 src/keyboards/inline/kbd.py:307
-#: src/states/setters.py:100
-msgid "Fan impeller"
-msgstr "Замена крыльчатки вентилятора"
-
-#: src/keyboards/inline/kbd.py:274
-msgid "Choose service nodes"
-msgstr "Выберите узлы чистки"
-
-#: src/keyboards/inline/kbd.py:318 src/keyboards/inline/kbd.py:339
-msgid "What were the factors complicating the work?"
-msgstr "Какие были факторы осложняющие работу?"
-
-#: src/keyboards/inline/kbd.py:323 src/keyboards/inline/kbd.py:344
-msgid "Difficult access"
-msgstr "Сложный доступ"
-
-#: src/keyboards/inline/kbd.py:325 src/keyboards/inline/kbd.py:346
-msgid "No access to object"
-msgstr "Нет допуска на объект"
-
-#: src/keyboards/inline/kbd.py:326 src/keyboards/inline/kbd.py:347
-msgid "Custom sizes of vent"
-msgstr "Нестандартные размеры"
-
-#: src/keyboards/inline/kbd.py:327 src/keyboards/inline/kbd.py:348
-msgid "Day off work"
-msgstr "Работа в выходной день"
-
-#: src/keyboards/inline/kbd.py:329 src/keyboards/inline/kbd.py:350
-msgid "Working in another emirate"
-msgstr "Работа в другом эмирате"
-
-#: src/states/setters.py:15
-msgid "Enter clients Name"
-msgstr "Укажите имя клиента"
-
-#: src/states/setters.py:21
+#: src/keyboards/inline/kbd.py:44
 msgid ""
 "Enter date of visit in format DAY MONTH YEAR.\n"
 "\n"
@@ -333,23 +390,349 @@ msgstr ""
 "\n"
 "Пример: 1 12 2022 (1-ое Декабря, 2022)"
 
-#: src/states/setters.py:29
+#: src/keyboards/inline/kbd.py:48
+msgid "2 days ago"
+msgstr "2 дня назад"
+
+#: src/keyboards/inline/kbd.py:49
+msgid "Yesterday"
+msgstr "Вчера"
+
+#: src/keyboards/inline/kbd.py:50
+msgid "Today"
+msgstr "Сегодня"
+
+#: src/keyboards/inline/kbd.py:58
+msgid "Select unit type:"
+msgstr "Выберите тип блока:"
+
+#: src/keyboards/inline/kbd.py:62
+msgid "Indoor unit"
+msgstr "Внутренний блок"
+
+#: src/keyboards/inline/kbd.py:63
+msgid "Outdoor unit"
+msgstr "Внешний блок"
+
+#: src/keyboards/inline/kbd.py:72 src/keyboards/inline/kbd.py:88
+msgid "Choose service:"
+msgstr "Выберите выполненные услуги:"
+
+#: src/keyboards/inline/kbd.py:76 src/keyboards/inline/kbd.py:92
+msgid "Service"
+msgstr "Сервис"
+
+# =============== PDF 1 slide ===============
+#: src/keyboards/inline/kbd.py:77 src/keyboards/inline/kbd.py:93
+msgid "Maintenance"
+msgstr "Обслуживание"
+
+#: src/keyboards/inline/kbd.py:78 src/keyboards/inline/kbd.py:94
+msgid "Check list"
+msgstr "Чек-лист"
+
+#: src/keyboards/inline/kbd.py:102
+msgid "Yes"
+msgstr "Да"
+
+#: src/keyboards/inline/kbd.py:102
+msgid "No"
+msgstr "Нет"
+
+#: src/keyboards/inline/kbd.py:114 src/keyboards/inline/kbd.py:158
+#: src/keyboards/inline/kbd.py:198
+msgid "Choose cleaning nodes"
+msgstr "Выберите узлы чистки"
+
+#: src/keyboards/inline/kbd.py:118 src/keyboards/inline/kbd.py:140
+msgid "valve"
+msgstr "Клапан"
+
+#: src/keyboards/inline/kbd.py:119 src/keyboards/inline/kbd.py:141
+msgid "аctuator"
+msgstr "Актуатор"
+
+#: src/keyboards/inline/kbd.py:120 src/keyboards/inline/kbd.py:142
+msgid "insulation fixing"
+msgstr "Замена изоляции"
+
+#: src/keyboards/inline/kbd.py:121 src/keyboards/inline/kbd.py:143
+msgid "indoor unit condenser replacement"
+msgstr "Замена конденсатора внутреннего блока"
+
+#: src/keyboards/inline/kbd.py:122 src/keyboards/inline/kbd.py:144
+msgid "thermostat adjustment"
+msgstr "Настройка термостата"
+
+#: src/keyboards/inline/kbd.py:123 src/keyboards/inline/kbd.py:145
+msgid "thermostat replacement"
+msgstr "Замена термостата"
+
+#: src/keyboards/inline/kbd.py:124 src/keyboards/inline/kbd.py:146
+#: src/keyboards/inline/kbd.py:164 src/keyboards/inline/kbd.py:184
+msgid "motor replacement"
+msgstr "Замена двигателя"
+
+#: src/keyboards/inline/kbd.py:125 src/keyboards/inline/kbd.py:147
+msgid "blower replacement"
+msgstr "Замена крыльчатки"
+
+#: src/keyboards/inline/kbd.py:126 src/keyboards/inline/kbd.py:148
+msgid "filter replacement/installation"
+msgstr "Замена/Установка фильтра"
+
+#: src/keyboards/inline/kbd.py:129 src/keyboards/inline/kbd.py:151
+#: src/keyboards/inline/kbd.py:171 src/keyboards/inline/kbd.py:191
+#: src/keyboards/inline/kbd.py:209 src/keyboards/inline/kbd.py:227
+#: src/keyboards/inline/kbd.py:255 src/keyboards/inline/kbd.py:281
+#: src/keyboards/inline/kbd.py:329 src/keyboards/inline/kbd.py:356
+#: src/keyboards/inline/kbd.py:384 src/keyboards/inline/kbd.py:411
+#: src/keyboards/inline/kbd.py:434 src/keyboards/inline/kbd.py:457
+#: src/keyboards/inline/kbd.py:490
+msgid "Enter"
+msgstr "Готово"
+
+#: src/keyboards/inline/kbd.py:136 src/keyboards/inline/kbd.py:178
+#: src/keyboards/inline/kbd.py:216
+msgid "Choose service nodes"
+msgstr "Выберите узлы чистки"
+
+#: src/keyboards/inline/kbd.py:162 src/keyboards/inline/kbd.py:182
+msgid "compressor replacement"
+msgstr "Замена компрессора"
+
+#: src/keyboards/inline/kbd.py:163 src/keyboards/inline/kbd.py:183
+msgid "starter replacement"
+msgstr "Замена пускателя"
+
+#: src/keyboards/inline/kbd.py:165 src/keyboards/inline/kbd.py:185
+msgid "capacitor replacement"
+msgstr "Замена конденсатора блока"
+
+#: src/keyboards/inline/kbd.py:166 src/keyboards/inline/kbd.py:186
+msgid "fan motor"
+msgstr "Замена двигателя вентилятора"
+
+#: src/keyboards/inline/kbd.py:167 src/keyboards/inline/kbd.py:187
+msgid "electrical checking and tightening"
+msgstr "Протяжка электронных крепежей"
+
+#: src/keyboards/inline/kbd.py:168 src/keyboards/inline/kbd.py:188
+msgid "gas pressure checking"
+msgstr "Проверка давления газа"
+
+#: src/keyboards/inline/kbd.py:202 src/keyboards/inline/kbd.py:220
+msgid "water heater replacement"
+msgstr "Замена бойлера"
+
+#: src/keyboards/inline/kbd.py:203 src/keyboards/inline/kbd.py:221
+msgid "pump replacement"
+msgstr "Замена насоса"
+
+#: src/keyboards/inline/kbd.py:204 src/keyboards/inline/kbd.py:222
+msgid "FAHU motor replacement"
+msgstr "Замена мотора"
+
+#: src/keyboards/inline/kbd.py:205 src/keyboards/inline/kbd.py:223
+msgid "FAHU belt replacement"
+msgstr "Замена ремня"
+
+#: src/keyboards/inline/kbd.py:206 src/keyboards/inline/kbd.py:224
+msgid "high efficiency filter replacement"
+msgstr "Замена фильтров тонкой очистки"
+
+#: src/keyboards/inline/kbd.py:235 src/keyboards/inline/kbd.py:264
+msgid "grills"
+msgstr "Решётки вентиляции"
+
+#: src/keyboards/inline/kbd.py:236 src/keyboards/inline/kbd.py:265
+msgid "duct"
+msgstr "Воздуховод"
+
+#: src/keyboards/inline/kbd.py:237 src/keyboards/inline/kbd.py:266
+msgid "pan"
+msgstr "Поддон"
+
+#: src/keyboards/inline/kbd.py:238 src/keyboards/inline/kbd.py:267
+msgid "evaporator"
+msgstr "Испаритель"
+
+#: src/keyboards/inline/kbd.py:239 src/keyboards/inline/kbd.py:268
+msgid "blower"
+msgstr "Крыльчатка"
+
+#: src/keyboards/inline/kbd.py:240 src/keyboards/inline/kbd.py:269
+msgid "filter"
+msgstr "Фильтр"
+
+#: src/keyboards/inline/kbd.py:241 src/keyboards/inline/kbd.py:270
+msgid "ceiling area"
+msgstr "Подпотолочное пространство"
+
+#: src/keyboards/inline/kbd.py:250 src/keyboards/inline/kbd.py:287
+msgid "Choose maintenance nodes (Page {}/2)"
+msgstr "Выберите узлы мойки (Страница {}/2)"
+
+#: src/keyboards/inline/kbd.py:294
+msgid "Select block type:"
+msgstr "Выберите тип блока:"
+
+#: src/keyboards/inline/kbd.py:298
+msgid "Full Maintenance"
+msgstr "Полная мойка"
+
+#: src/keyboards/inline/kbd.py:299
+msgid "Support"
+msgstr "Поддержка"
+
+#: src/keyboards/inline/kbd.py:309 src/keyboards/inline/kbd.py:336
+#: src/keyboards/inline/kbd.py:364 src/keyboards/inline/kbd.py:391
+#: src/keyboards/inline/kbd.py:418 src/keyboards/inline/kbd.py:441
+msgid ""
+"Choose completed work:\n"
+"❗️ - recommendation for action immediately \n"
+"📣 - recommendation for actions in the next service\n"
+"❌ - no action recommendation selected"
+msgstr ""
+"Выберите выполненную работу:\n"
+"❗️ — рекомендация к немедленному выполнению\n"
+"📣 — рекомендация к выполнению в следующей службе\n"
+"❌ — рекомендация к выполнению не выбрана"
+
+#: src/keyboards/inline/kbd.py:317 src/keyboards/inline/kbd.py:344
+msgid "Disassembling and cleaning the grills"
+msgstr "Демонтаж и отчистка решетки"
+
+#: src/keyboards/inline/kbd.py:318 src/keyboards/inline/kbd.py:345
+msgid "Duct cleaning and desinfection"
+msgstr "Чистка и дезинфекция воздуховода"
+
+#: src/keyboards/inline/kbd.py:319 src/keyboards/inline/kbd.py:346
+msgid "Evaporator cleaning and desinfection"
+msgstr "Чистка и дезинфекция испарителя"
+
+#: src/keyboards/inline/kbd.py:320 src/keyboards/inline/kbd.py:347
+msgid "Blower cleaning"
+msgstr "Чистка крыльчатки"
+
+#: src/keyboards/inline/kbd.py:321 src/keyboards/inline/kbd.py:348
+#: src/keyboards/inline/kbd.py:375 src/keyboards/inline/kbd.py:402
+msgid "Filter cleaning"
+msgstr "Чистка фильтров"
+
+#: src/keyboards/inline/kbd.py:322 src/keyboards/inline/kbd.py:349
+#: src/keyboards/inline/kbd.py:376 src/keyboards/inline/kbd.py:403
+msgid "Installation of additional filters"
+msgstr "Установка синтепоновых фильтров"
+
+#: src/keyboards/inline/kbd.py:323 src/keyboards/inline/kbd.py:350
+#: src/keyboards/inline/kbd.py:378 src/keyboards/inline/kbd.py:405
+msgid "Drainage cleaning"
+msgstr "Чистка дренажа"
+
+#: src/keyboards/inline/kbd.py:324 src/keyboards/inline/kbd.py:351
+#: src/keyboards/inline/kbd.py:379 src/keyboards/inline/kbd.py:406
+msgid "Outside unit cleaning (if required)"
+msgstr "Мойка внешнего блока"
+
+#: src/keyboards/inline/kbd.py:325 src/keyboards/inline/kbd.py:352
+msgid "Pcb cleaning"
+msgstr "Чистка платы"
+
+#: src/keyboards/inline/kbd.py:326 src/keyboards/inline/kbd.py:353
+msgid "Pulling electrical fasteners"
+msgstr "Протяжка электрических контактов"
+
+#: src/keyboards/inline/kbd.py:372 src/keyboards/inline/kbd.py:399
+msgid "Checking for mold on the grill"
+msgstr "Проверка решеток на наличие плесени"
+
+#: src/keyboards/inline/kbd.py:373 src/keyboards/inline/kbd.py:400
+msgid "Duct desinfection"
+msgstr "Дезинфекция воздуховода"
+
+#: src/keyboards/inline/kbd.py:374 src/keyboards/inline/kbd.py:401
+msgid "Evaporator desinfection"
+msgstr "Дезинфекция испарителя"
+
+#: src/keyboards/inline/kbd.py:377 src/keyboards/inline/kbd.py:404
+msgid "Pan cleaning"
+msgstr "Чистка поддона"
+
+#: src/keyboards/inline/kbd.py:380 src/keyboards/inline/kbd.py:407
+msgid "pcb cleaning (if required)"
+msgstr "Чистка платы"
+
+#: src/keyboards/inline/kbd.py:381 src/keyboards/inline/kbd.py:408
+msgid "Pulling electrical fasteners (if required)"
+msgstr "Протяжка электрических контактов"
+
+#: src/keyboards/inline/kbd.py:426 src/keyboards/inline/kbd.py:449
+msgid "Evaporator service Fresh Air Unit(FHU)"
+msgstr "Обслуживание испарителя вентиляции"
+
+#: src/keyboards/inline/kbd.py:427 src/keyboards/inline/kbd.py:450
+msgid "Blower service (FHU)"
+msgstr "Обслуживание воздуховода"
+
+#: src/keyboards/inline/kbd.py:428 src/keyboards/inline/kbd.py:451
+msgid "Filter cleaning (FHU)"
+msgstr "Обслуживание фильтров"
+
+#: src/keyboards/inline/kbd.py:429 src/keyboards/inline/kbd.py:452
+msgid "Fine filter (FHU)"
+msgstr "Фильтр тонкой отчистки"
+
+#: src/keyboards/inline/kbd.py:430 src/keyboards/inline/kbd.py:453
+msgid "Belt FHU"
+msgstr "Замена ремня"
+
+#: src/keyboards/inline/kbd.py:431 src/keyboards/inline/kbd.py:454
+msgid "Exhaust fan"
+msgstr "Вытяжной вентилятор"
+
+#: src/keyboards/inline/kbd.py:495
+msgid ""
+"Room: {room_name}\n"
+"\n"
+"Serviced nodes:\n"
+"NO photo - 📷\n"
+"NO video - 📹\n"
+"NO comment - 💬\n"
+"\n"
+"Tap to node for change"
+msgstr ""
+"Комната: {room_name}\n"
+"\n"
+"Обслуживаемые узлы:\n"
+"НЕТ фото - 📷\n"
+"НЕТ видео - 📹\n"
+"НЕТ комментария - 💬\n"
+"\n"
+"Нажмите на узел для изменения"
+
+#: src/keyboards/inline/kbd.py:512
+msgid "Select report master:"
+msgstr "Выберите мастера для отчета:"
+
+# =============== СОСТОЯНИЯ ===============
+#: src/states/setters.py:18
+msgid "Enter clients Name"
+msgstr "Укажите имя клиента"
+
+#: src/states/setters.py:28
 msgid "Enter Phone number"
 msgstr "Укажите номер телефона клиента"
 
-#: src/states/setters.py:142
-msgid "Do you want to add room?"
-msgstr "Вы хотите добавить комнату или другое место проведения работ?"
-
-#: src/states/setters.py:147
+#: src/states/setters.py:157
 msgid "Do you want to add repair unit?"
 msgstr "Вы хотите добавить ремонтный узел?"
 
-#: src/states/setters.py:155
+#: src/states/setters.py:165
 msgid "Send image BEFORE for repair work"
 msgstr "Прикрепите 1 фото ДО для ремонтной работы"
 
-#: src/states/setters.py:160
+#: src/states/setters.py:170
 msgid "Send image AFTER for repair work"
 msgstr "Прикрепите 1 фото ПОСЛЕ для ремонтной работы"
 
@@ -362,3 +745,328 @@ msgstr ""
 msgid "[image]"
 msgstr ""
 
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:407
+#, python-format
+msgid "Content purported to be compressed with %s but failed to decompress."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:571
+#, python-format
+msgid "Unsupported value for qop: %s."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:575
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:653
+#, python-format
+msgid "Unsupported value for algorithm: %s.algorithm"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:648
+msgid "The challenge doesn't contain a server nonce, or this one is empty."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:658
+#, python-format
+msgid "Unsupported value for pw-algorithm: %s.pw-algorithm"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:1471
+msgid "Redirected but the response is missing a Location: header."
+msgstr ""
+
+# ========PDF extra slide (NO WORK)============
+#~ msgid ""
+#~ "Deep cleaning of fan coil unit "
+#~ "(VAV, blower fans, air-filter, "
+#~ "evaporator coil, drain tray (if "
+#~ "accessible))"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Check-up and adjustment of valves, "
+#~ "fan belts, pulleys, coil, filter, "
+#~ "strainer, pipe joints, insulation, bearings,"
+#~ " drain trays, drain pipes and "
+#~ "manometer tubes. VRV system errors\n"
+#~ "and pressure check-up (as applicable to your type of property)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Checking for noise, leaks, smell, "
+#~ "vibration and general performance issues "
+#~ "(for villas - refrigerant level "
+#~ "check-up, board of roof-top AC "
+#~ "unit control clean-up and check-"
+#~ "up,\n"
+#~ "controls calibrations checks)"
+#~ msgstr ""
+
+#~ msgid "Check-up of thermostat (for villas – starters, relays and timers)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Cleaning of above-ceiling areas "
+#~ "(construction work left-overs clean-up,"
+#~ " vacuum cleaning with special hose "
+#~ "and brush, hand-washing with water)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Disinfection with antibacterial agent "
+#~ "(ShieldMe, Condenser cleaner, AC cleaner, "
+#~ "OxyPro 7.5, MrMuscle"
+#~ msgstr ""
+#~ "Дезинфекция с помощью  антибактериальных "
+#~ "средств (ShieldMe, Condenser cleaner, AC "
+#~ "cleaner, OxyPro 7.5, MrMuscle)"
+
+#~ msgid "Using anti-dust protection curtains (Zipwall US)"
+#~ msgstr "Использование противопылевых защитных занавесок (Zipwall US)"
+
+#~ msgid ""
+#~ "All works performed with german, "
+#~ "american and japanese hand tools - "
+#~ "DeWalt, Karcher, Stanley, Yato, Bosch "
+#~ "and Vessel"
+#~ msgstr ""
+#~ "Все работы выполнены с использованием "
+#~ "немецких, американских и японских "
+#~ "производителей - DeWalt, Karcher, Stanley, "
+#~ "Yato, Bosch и Vessel"
+
+#~ msgid ""
+#~ "Cumbersome and otherwise difficult access "
+#~ "to units (ceiling access panels located"
+#~ " far from AC units, access panels "
+#~ "being less than\n"
+#~ "60 cm and similar) which affected the overall time of works"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Property access permit not applied "
+#~ "for/provided/procured for by the Client "
+#~ "in advance"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Duct grills and/or diffusers are of "
+#~ "the length more than 2 meters long"
+#~ " and system has not been serviced "
+#~ "for a long time"
+#~ msgstr ""
+
+#~ msgid "The inspection performed on a weekend or on a UAE National Holiday"
+#~ msgstr ""
+#~ "Работы, выполненные в выходные дни или"
+#~ " в дни национальных праздников ОАЭ"
+
+#~ msgid "The Client's premises are located outside Dubai, in other emirate"
+#~ msgstr "Недвижимость Клиента расположены за пределами Дубая, в других эмиратах"
+
+#~ msgid "What we did extra:"
+#~ msgstr "Что мы сделали дополнительно:"
+
+#~ msgid ""
+#~ "Factors on your premises affecting the"
+#~ " inspection time length and final "
+#~ "price for our services:"
+#~ msgstr ""
+#~ "Факторы на вашем объекте, влияющие на"
+#~ " продолжительность инспекции и окончательную "
+#~ "стоимость наших услуг:"
+
+# =============== PDF 1 slide ===============
+
+msgid "Service Completion"
+msgstr "Завершение обслуживания"
+
+msgid "Report"
+msgstr "Отчет"
+
+msgid "Presented by "
+msgstr "Представлено "
+
+msgid "Andrei Nosikov "
+msgstr "Андреем Носиковым "
+
+msgid "of "
+msgstr "из компании "
+
+msgid "Klimatika AC and Refrigerator "
+msgstr "Klimatika AC and Refrigerator "
+
+msgid "Maintenance LLC "
+msgstr "Maintenance LLC "
+
+msgid " (License# 1113949)"
+msgstr " (Лицензия# 1113949)"
+
+msgid "Learn how we help "
+msgstr "Узнайте, как мы помогаем "
+
+msgid "you breathe."
+msgstr "вам дышать."
+
+# =============== PDF 2 slide ===============
+msgid "Summary ({} of {})"
+msgstr "Сводка ({} из {})"
+
+msgid "Date:  "
+msgstr "Дата:  "
+
+msgid "Name:  "
+msgstr "Имя:  "
+
+msgid "Phone number:  "
+msgstr "Номер телефона:  "
+
+msgid "Address:  "
+msgstr "Адрес:  "
+
+msgid "Performed services:  "
+msgstr "Выполненные услуги:  "
+
+msgid "Description:"
+msgstr "Описание:"
+
+msgid "Premium cleaning service included:"
+msgstr "Включено в стоимость премиум-уборки:"
+
+msgid ""
+"Minor repairs around the house, not "
+"related to the repair of air "
+"conditioners and ventilation"
+msgstr ""
+"Мелкий ремонт по дому, не связанный "
+"с ремонтом кондиционеров и вентиляции"
+
+# =============== PDF 3 slide ===============
+msgid "Hereby we:"
+msgstr "Тем самым мы:"
+
+msgid ""
+"represent the outline of what we actually did where photos evidence that our services had been performed as shown to the best extent\npossible given the circumstances, access and work conditions;"
+msgstr ""
+"представляем отчет о фактически выполненных работах, где фотографии подтверждают оказание наших услуг в максимально\n возможной степени с учетом обстоятельств, доступа и условий работы;"
+
+msgid ""
+"gaurantee that photos are genuine and had not been used from other clients' premises;"
+msgstr ""
+"гарантируем, что фотографии являются подлинными и не были использованы с объектов других клиентов;"
+
+msgid ""
+"kindly ask you to take into account that mild dust layer in the duct and some dirt in the trays/drain may add up very quickly (in 2-3 days\nafter cleaning) in the GCC region due to cliamte conditions and AC system work, this is normal and does not indicate that our services\nhave been performed loosely or unduly. Please provide evidence if you feel strong that it was our fault, otherwise we won't be able to\nprocess it in a proper way. For frivoulous claims not supported by convicing evidence we reserve the right to dispute such claims based\non this report and solely on the fact that no objections from your side were raised when you received this report and paid for our\nservices."
+msgstr ""
+"любезно просим принять во внимание, что легкий слой пыли в воздуховоде и некоторая грязь в поддонах/дренаже могут \nнакапливаться очень быстро (за 2-3 дня после очистки) в регионе Персидского залива из-за климатических условий\nи работы системы кондиционирования. Это нормально и не указывает на то, что наши услуги были выполнены\nнебрежно или ненадлежащим образом."
+
+msgid ""
+"kindly inform you if you do not raise any objections to what you see in this report or invoice within 24 hours after receiving this\nreport/invoice, we assume that you accept the works as they are depicted in photos in full and have no objections whatsoever."
+msgstr ""
+"любезно сообщаем, что если вы не выдвинете никаких возражений относительно того, что видите в данном отчете\nили счете-фактуре в течение 24 часов после получения отчета/счета, мы предполагаем, что вы полностью принимаете работы,\nкак они изображены на фотографиях, и не имеете никаких возражений."
+
+msgid ""
+"highly recommend that you have your AC units and Duct system serviced at least 3-4 times a year, so that you enjoy fresh air,"
+msgstr ""
+"Настоятельно рекомендуем проводить "
+"тех. обслуживание кондиционеров и "
+"воздуховодов "
+"не реже 3–4 раз в год,"
+
+msgid ""
+"system work properly and you pay "
+"less for electricity bills or AC "
+"repair."
+msgstr ""
+"система работала исправно, а вы платили"
+" меньше за электроэнергию или ремонт "
+"кондиционеров."
+
+# =============Nodes slides====================
+msgid "BEFORE and AFTER {}"
+msgstr "ДО и ПОСЛЕ {}"
+
+msgid "Node Comments: {}"
+msgstr "Комментарии к узлу: {}"
+
+msgid "Room Comments: {}"
+msgstr "Комментарии к комнате: {}"
+
+msgid "Status: "
+msgstr "Статус: "
+
+msgid "Check list: {}"
+msgstr "Чек-лист: {}"
+
+msgid "Recommendation for action immediately"
+msgstr "Рекомендация к немедленному выполнению"
+
+msgid "Recommendation for actions in the next service"
+msgstr "Рекомендация к выполнению в следующей службе"
+
+msgid "Comments"
+msgstr "Комментарии"
+
+msgid "Nodes"
+msgstr "Узлы"
+
+msgid "Nodes: "
+msgstr "Узлы: "
+
+msgid "Comments: "
+msgstr "Комментарии: "
+
+msgid "Master: "
+msgstr "Мастер: "
+
+msgid "Recommendations and comments"
+msgstr "Рекомендации и комментарии"
+
+msgid "Other service without photo:"
+msgstr "Другие услуги без фото:"
+
+msgid "No nodes"
+msgstr "Нет узлов"
+
+# =============== PDF 4 slide ===============
+msgid "Make   Sure   to    get   Your    VAC"
+msgstr "Обязательно   получите   свой   VAC"
+
+msgid "system  inspected  and  serviced"
+msgstr "система проверена и обслужена"
+
+msgid "on a regular basis!"
+msgstr "на регулярной основе!"
+
+msgid "Clean air system can help you save between 5{percent} and"
+msgstr "Система чистого воздуха может помочь вам сэкономить от 5{percent} до"
+
+msgid "15{percent} from your electricity bill!"
+msgstr "15{percent} от вашего счета за электричество!"
+
+msgid "HAVE  your  AC  and  Duct  system  SERVICED  every  3-4"
+msgstr "ОБСЛУЖИВАЙТЕ вашу систему кондиционирования и воздуховодов каждые 3-4"
+
+msgid "months  to  prevent  the  system  from  faailing  when  you"
+msgstr "месяца,  чтобы  предотвратить  выход  системы  из  строя,  когда  вы"
+
+msgid "need it most."
+msgstr "нуждаетесь  в  ней  больше  всего."
+
+# =============== PDF 5 slide ===============
+msgid "Let's talk!"
+msgstr "Давайте поговорим!"
+
+msgid "Call or email us any time for any inquiries"
+msgstr "Звоните или пишите нам в любое время по любым вопросам"
+
+msgid "regarding our services"
+msgstr "относительно наших услуг"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Website"
+msgstr "Веб-сайт"

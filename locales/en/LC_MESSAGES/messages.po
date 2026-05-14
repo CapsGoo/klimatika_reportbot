@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-07 22:37+0500\n"
-"PO-Revision-Date: 2025-03-07 20:09+0500\n"
+"POT-Creation-Date: 2026-02-03 18:34+0500\n"
+"PO-Revision-Date: 2025-11-14 03:30+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -18,42 +18,208 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: src/handlers/callbacks/users/form.py:41 src/states/setters.py:34
+#: src/handlers/callbacks/users/admin.py:25
+#: src/handlers/callbacks/users/admin.py:65
+#: src/handlers/message/users/admin.py:26
+msgid "📋 Nodes list:"
+msgstr ""
+
+#: src/handlers/callbacks/users/admin.py:37
+#: src/handlers/callbacks/users/admin.py:88
+#: src/handlers/message/users/admin.py:42
+msgid "👨‍🔧 Masters list:"
+msgstr ""
+
+#: src/handlers/callbacks/users/admin.py:46
+msgid "✅ Exited admin panel"
+msgstr ""
+
+#: src/handlers/callbacks/users/admin.py:55
+msgid "✍️ Enter new node name:"
+msgstr ""
+
+#: src/handlers/callbacks/users/admin.py:63
+msgid "Node '{node_text}' deleted"
+msgstr ""
+
+#: src/handlers/callbacks/users/admin.py:69
+msgid "❌ Error deleting node"
+msgstr ""
+
+#: src/handlers/callbacks/users/admin.py:78
+msgid "✍️ Enter new master name:"
+msgstr ""
+
+#: src/handlers/callbacks/users/admin.py:86
+msgid "Master '{master_text}' deleted"
+msgstr ""
+
+#: src/handlers/callbacks/users/admin.py:92
+msgid "❌ Error deleting master"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:68
+#: src/handlers/callbacks/users/form.py:486
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:81 src/states/setters.py:30
 msgid "Enter client address:"
 msgstr ""
 
-#: src/handlers/callbacks/users/form.py:122
+#: src/handlers/callbacks/users/form.py:119
 msgid "Enter room"
 msgstr ""
 
-#: src/handlers/callbacks/users/form.py:131
+#: src/handlers/callbacks/users/form.py:132
+#: src/handlers/callbacks/users/form.py:166
+#: src/handlers/callbacks/users/form.py:198
+#: src/handlers/message/users/form.py:93 src/handlers/message/users/form.py:128
 msgid "Unexpected service type"
 msgstr ""
 
-#: src/handlers/callbacks/users/form.py:144
-msgid "Please type other extra service"
+#: src/handlers/callbacks/users/form.py:151
+msgid "Enter block"
 msgstr ""
 
-#: src/handlers/callbacks/users/form.py:260
+#: src/handlers/callbacks/users/form.py:184
+msgid "Enter work factors"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:261
+msgid "An error occurred while adding the node"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:301
+#: src/handlers/callbacks/users/form.py:440
 msgid "Please type other cleaning node"
 msgstr ""
 
-#: src/handlers/callbacks/users/form.py:278
-msgid "You didn't selected cleaning nodes"
-msgstr ""
-
-#: src/handlers/callbacks/users/form.py:332
-#: src/handlers/message/users/form.py:162
-#: src/handlers/message/users/form.py:185 src/states/setters.py:136
-msgid "Send photo AFTER for"
+#: src/handlers/callbacks/users/form.py:336
+#: src/handlers/callbacks/users/form.py:370
+#: src/handlers/callbacks/users/form.py:406
+msgid "Room not found"
 msgstr ""
 
 #: src/handlers/callbacks/users/form.py:342
+#: src/handlers/callbacks/users/form.py:376
+#: src/handlers/callbacks/users/form.py:412
+#: src/handlers/message/users/form.py:146
+#: src/handlers/message/users/form.py:183
+#: src/handlers/message/users/form.py:234
+#: src/handlers/message/users/form.py:286
+#: src/handlers/message/users/form.py:318
+#: src/handlers/message/users/form.py:346
+#: src/handlers/message/users/form.py:397
+msgid "Node not found"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:461
+msgid "You didn't selected cleaning nodes"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:483
+#: src/handlers/callbacks/users/form.py:676
+#: src/handlers/message/users/form.py:165 src/states/setters.py:99
+msgid "Send photo BEFORE for {}"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:499
+#: src/handlers/message/users/form.py:197
+msgid "Now write a recommendation for the photo"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:508
+#: src/handlers/message/users/form.py:206
+msgid "Now write a recommendation for the room"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:514
+#: src/handlers/callbacks/users/form.py:538
+#: src/handlers/message/users/form.py:214
+#: src/handlers/message/users/form.py:252 src/states/setters.py:105
+msgid "Send photo AFTER for {}"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:590
+msgid "Add a photo 📷"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:601
+msgid "Add video 📹"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:611
+msgid "Add a comment 💬"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:621 src/keyboards/inline/kbd.py:108
+#: src/keyboards/inline/kbd.py:488
+msgid "Skip"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:637
+msgid ""
+"Node selected: {}\n"
+"What would you like to add?"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:643
+msgid ""
+"Node selected: {}\n"
+"Nothing to add (no missing data)"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:667
+msgid "Please enter a comment:"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:687
+msgid ""
+"Please send video\n"
+" The maximum size is 20 MB:"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:723
+msgid "Send master name"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:759
 msgid "Generating..."
 msgstr ""
 
-#: src/handlers/callbacks/users/form.py:346
+#: src/handlers/callbacks/users/form.py:768
 msgid "Thank you for your work!"
+msgstr ""
+
+#: src/handlers/callbacks/users/form.py:782
+msgid "Need report in Russian?"
+msgstr ""
+
+#: src/handlers/message/users/admin.py:21
+msgid "✅ Node '{node_text}' added!"
+msgstr ""
+
+#: src/handlers/message/users/admin.py:23
+msgid "❌ Failed to add node. It may already exist."
+msgstr ""
+
+#: src/handlers/message/users/admin.py:37
+msgid "✅ Master '{master_text}' added!"
+msgstr ""
+
+#: src/handlers/message/users/admin.py:39
+msgid "❌ Failed to add master. He may already exist."
+msgstr ""
+
+#: src/handlers/message/users/cancel.py:351
+msgid "Nothing to cancel. Start with /start"
+msgstr ""
+
+#: src/handlers/message/users/cancel.py:358
+msgid ""
+"Operation cancelled. All data has been cleared.\n"
+"Start a new report with /start"
 msgstr ""
 
 #: src/handlers/message/users/form.py:22
@@ -76,277 +242,475 @@ msgstr ""
 msgid "Incorrect room"
 msgstr ""
 
-#: src/handlers/message/users/form.py:104
+#: src/handlers/message/users/form.py:101
 msgid "Cleaning node name is too long! Should be < 31"
 msgstr ""
 
-#: src/handlers/message/users/form.py:133 src/states/setters.py:128
-msgid "Send photo BEFORE for"
+#: src/handlers/message/users/form.py:140
+#: src/handlers/message/users/form.py:177
+#: src/handlers/message/users/form.py:227
+msgid "No active cleaning node"
 msgstr ""
 
-#: src/handlers/message/users/form.py:147
-msgid "Now write a recommendation for the photo"
+#: src/handlers/message/users/form.py:294
+msgid "Photo BEFORE add. Send photo AFTER for"
 msgstr ""
 
-#: src/handlers/message/users/form.py:158
-msgid "Now write a recommendation for the room"
+#: src/handlers/message/users/form.py:296
+msgid "BEFORE photo added!"
 msgstr ""
 
-#: src/handlers/message/users/message.py:21
+#: src/handlers/message/users/form.py:325
+msgid "Photos saved! Node data updated."
+msgstr ""
+
+#: src/handlers/message/users/form.py:362
+msgid "Comment saved! Node data updated."
+msgstr ""
+
+#: src/handlers/message/users/form.py:381
+msgid ""
+"The video is too large! The maximum size is 20 MB.\n"
+"Please compress the video and resubmit it."
+msgstr ""
+
+#: src/handlers/message/users/form.py:412
+msgid "Video ID saved! Video will be downloaded when report is generated."
+msgstr ""
+
+#: src/handlers/message/users/form.py:430
+msgid "Room master saved!"
+msgstr ""
+
+#: src/handlers/message/users/message.py:27
 msgid "Hi! {first_name} {last_name}"
 msgstr ""
 
-#: src/keyboards/inline/kbd.py:18
-msgid "Select room type:"
+#: src/handlers/message/users/message.py:40
+msgid "🔧 Admin panel"
 msgstr ""
 
-#: src/keyboards/inline/kbd.py:22
-msgid "Kitchen"
+#: src/keyboards/inline/admin.py:38
+msgid "➕ Add Node"
 msgstr ""
 
-#: src/keyboards/inline/kbd.py:23
-msgid "Bedroom"
+#: src/keyboards/inline/admin.py:39
+msgid "👨‍🔧 Add Master"
+msgstr ""
+
+#: src/keyboards/inline/admin.py:40
+msgid "❌ Exit"
+msgstr ""
+
+#: src/keyboards/inline/admin.py:56
+msgid "❌ {node}"
+msgstr ""
+
+#: src/keyboards/inline/admin.py:61 src/keyboards/inline/admin.py:81
+msgid "➕ Add"
+msgstr ""
+
+#: src/keyboards/inline/admin.py:76
+msgid "❌ {master}"
+msgstr ""
+
+#: src/keyboards/inline/form.py:463
+msgid "Add room master"
+msgstr ""
+
+#: src/keyboards/inline/form.py:464
+msgid "Master"
+msgstr ""
+
+#: src/keyboards/inline/form.py:482
+msgid "Do you want to add room?"
+msgstr ""
+
+#: src/keyboards/inline/form.py:490
+msgid "yes"
+msgstr ""
+
+#: src/keyboards/inline/form.py:491
+msgid "no"
 msgstr ""
 
 #: src/keyboards/inline/kbd.py:24
-msgid "Living Room"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:25
-msgid "Master bedroom"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:26
-msgid "Kids bedroom"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:27
-msgid "Guest bedroom"
+msgid "Select room type:"
 msgstr ""
 
 #: src/keyboards/inline/kbd.py:28
-msgid "Maids bedroom"
+msgid "Kitchen"
 msgstr ""
 
 #: src/keyboards/inline/kbd.py:29
-msgid "Cabinet room"
+msgid "Bedroom"
 msgstr ""
 
 #: src/keyboards/inline/kbd.py:30
+msgid "Living Room"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:31
+msgid "Master bedroom"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:32
+msgid "Kids bedroom"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:33
+msgid "Guest bedroom"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:34
+msgid "Maids bedroom"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:35
+msgid "Cabinet room"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:36
 msgid "Gym"
 msgstr ""
 
-#: src/keyboards/inline/kbd.py:32 src/keyboards/inline/kbd.py:69
-#: src/keyboards/inline/kbd.py:130 src/keyboards/inline/kbd.py:166
-#: src/keyboards/inline/kbd.py:204 src/keyboards/inline/kbd.py:266
-#: src/keyboards/inline/kbd.py:310
+#: src/keyboards/inline/kbd.py:38 src/keyboards/inline/kbd.py:63
+#: src/keyboards/inline/kbd.py:127 src/keyboards/inline/kbd.py:149
+#: src/keyboards/inline/kbd.py:169 src/keyboards/inline/kbd.py:189
+#: src/keyboards/inline/kbd.py:207 src/keyboards/inline/kbd.py:225
+#: src/keyboards/inline/kbd.py:253 src/keyboards/inline/kbd.py:279
+#: src/keyboards/inline/kbd.py:299 src/keyboards/inline/kbd.py:327
+#: src/keyboards/inline/kbd.py:354 src/keyboards/inline/kbd.py:382
+#: src/keyboards/inline/kbd.py:409 src/keyboards/inline/kbd.py:432
+#: src/keyboards/inline/kbd.py:455 src/keyboards/inline/kbd.py:487
 msgid "Other"
 msgstr ""
 
-#: src/keyboards/inline/kbd.py:39 src/keyboards/inline/kbd.py:101
-msgid "Choose service:"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:43 src/keyboards/inline/kbd.py:105
-msgid "Service"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:44 src/keyboards/inline/kbd.py:106
-msgid "Maintenance"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:45 src/keyboards/inline/kbd.py:107
-msgid "Check list"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:54 src/keyboards/inline/kbd.py:115
-msgid "Choose extra services"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:59 src/keyboards/inline/kbd.py:120
-msgid "Cold Fog Machine Disinfections"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:62 src/keyboards/inline/kbd.py:123
-msgid "New Polyester Filters Installation"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:67 src/keyboards/inline/kbd.py:128
-msgid "Repair Works"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:70 src/keyboards/inline/kbd.py:131
-#: src/keyboards/inline/kbd.py:167 src/keyboards/inline/kbd.py:205
-#: src/keyboards/inline/kbd.py:267 src/keyboards/inline/kbd.py:311
-#: src/keyboards/inline/kbd.py:332 src/keyboards/inline/kbd.py:353
-msgid "Enter"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:77 src/keyboards/inline/kbd.py:213
-msgid "Select client is an owner or a tenant"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:82 src/keyboards/inline/kbd.py:218
-msgid "Owner"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:85 src/keyboards/inline/kbd.py:221
-msgid "Tenant"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:95
-msgid "Yes"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:95
-msgid "No"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:137 src/keyboards/inline/kbd.py:175
-msgid "Choose maintenance nodes"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:142 src/keyboards/inline/kbd.py:180
-#: src/states/setters.py:111
-msgid "grills"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:145 src/keyboards/inline/kbd.py:183
-#: src/states/setters.py:112
-msgid "duct"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:148 src/keyboards/inline/kbd.py:186
-#: src/states/setters.py:113
-msgid "pan"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:152 src/keyboards/inline/kbd.py:190
-#: src/states/setters.py:114
-msgid "radiator"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:155 src/keyboards/inline/kbd.py:193
-#: src/states/setters.py:115
-msgid "filter"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:158 src/keyboards/inline/kbd.py:196
-#: src/states/setters.py:116
-msgid "blades"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:162 src/keyboards/inline/kbd.py:200
-#: src/states/setters.py:117
-msgid "ceiling area"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:230
-msgid "Choose cleaning nodes"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:235 src/keyboards/inline/kbd.py:279
-#: src/states/setters.py:72
-msgid "Actuator"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:238 src/keyboards/inline/kbd.py:282
-#: src/states/setters.py:75
-msgid "Motor"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:241 src/keyboards/inline/kbd.py:285
-#: src/states/setters.py:78
-msgid "Isolation fixing"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:245 src/keyboards/inline/kbd.py:289
-#: src/states/setters.py:82
-msgid "Electronic fasteners tightening"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:249 src/keyboards/inline/kbd.py:293
-#: src/states/setters.py:86
-msgid "Level fixing"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:252 src/keyboards/inline/kbd.py:296
-#: src/states/setters.py:89
-msgid "Compressor"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:256 src/keyboards/inline/kbd.py:300
-#: src/states/setters.py:93
-msgid "Capacitor replacement(outside unit)"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:260 src/keyboards/inline/kbd.py:304
-#: src/states/setters.py:97
-msgid "Fan motor"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:263 src/keyboards/inline/kbd.py:307
-#: src/states/setters.py:100
-msgid "Fan impeller"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:274
-msgid "Choose service nodes"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:318 src/keyboards/inline/kbd.py:339
-msgid "What were the factors complicating the work?"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:323 src/keyboards/inline/kbd.py:344
-msgid "Difficult access"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:325 src/keyboards/inline/kbd.py:346
-msgid "No access to object"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:326 src/keyboards/inline/kbd.py:347
-msgid "Custom sizes of vent"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:327 src/keyboards/inline/kbd.py:348
-msgid "Day off work"
-msgstr ""
-
-#: src/keyboards/inline/kbd.py:329 src/keyboards/inline/kbd.py:350
-msgid "Working in another emirate"
-msgstr ""
-
-#: src/states/setters.py:15
-msgid "Enter clients Name"
-msgstr ""
-
-#: src/states/setters.py:21
+#: src/keyboards/inline/kbd.py:43
 msgid ""
 "Enter date of visit in format DAY MONTH YEAR.\n"
 "\n"
 "For example: 1 12 2022 (December the 1st, 2022)"
 msgstr ""
 
-#: src/states/setters.py:29
+#: src/keyboards/inline/kbd.py:47
+msgid "2 days ago"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:48
+msgid "Yesterday"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:49
+msgid "Today"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:57
+msgid "Select unit type:"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:61
+msgid "Indoor unit"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:62
+msgid "Outdoor unit"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:71 src/keyboards/inline/kbd.py:87
+msgid "Choose service:"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:75 src/keyboards/inline/kbd.py:91
+msgid "Service"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:76 src/keyboards/inline/kbd.py:92
+msgid "Maintenance"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:77 src/keyboards/inline/kbd.py:93
+msgid "Check list"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:101
+msgid "Yes"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:101
+msgid "No"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:113 src/keyboards/inline/kbd.py:157
+#: src/keyboards/inline/kbd.py:197
+msgid "Choose cleaning nodes"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:117 src/keyboards/inline/kbd.py:139
+msgid "valve"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:118 src/keyboards/inline/kbd.py:140
+msgid "аctuator"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:119 src/keyboards/inline/kbd.py:141
+msgid "insulation fixing"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:120 src/keyboards/inline/kbd.py:142
+msgid "indoor unit condenser replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:121 src/keyboards/inline/kbd.py:143
+msgid "thermostat adjustment"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:122 src/keyboards/inline/kbd.py:144
+msgid "thermostat replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:123 src/keyboards/inline/kbd.py:145
+#: src/keyboards/inline/kbd.py:163 src/keyboards/inline/kbd.py:183
+msgid "motor replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:124 src/keyboards/inline/kbd.py:146
+msgid "blower replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:125 src/keyboards/inline/kbd.py:147
+msgid "filter replacement/installation"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:128 src/keyboards/inline/kbd.py:150
+#: src/keyboards/inline/kbd.py:170 src/keyboards/inline/kbd.py:190
+#: src/keyboards/inline/kbd.py:208 src/keyboards/inline/kbd.py:226
+#: src/keyboards/inline/kbd.py:254 src/keyboards/inline/kbd.py:280
+#: src/keyboards/inline/kbd.py:328 src/keyboards/inline/kbd.py:355
+#: src/keyboards/inline/kbd.py:383 src/keyboards/inline/kbd.py:410
+#: src/keyboards/inline/kbd.py:433 src/keyboards/inline/kbd.py:456
+#: src/keyboards/inline/kbd.py:470
+msgid "Enter"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:135 src/keyboards/inline/kbd.py:177
+#: src/keyboards/inline/kbd.py:215
+msgid "Choose service nodes"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:161 src/keyboards/inline/kbd.py:181
+msgid "compressor replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:162 src/keyboards/inline/kbd.py:182
+msgid "starter replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:164 src/keyboards/inline/kbd.py:184
+msgid "capacitor replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:165 src/keyboards/inline/kbd.py:185
+msgid "fan motor"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:166 src/keyboards/inline/kbd.py:186
+msgid "electrical checking and tightening"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:167 src/keyboards/inline/kbd.py:187
+msgid "gas pressure checking"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:201 src/keyboards/inline/kbd.py:219
+msgid "water heater replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:202 src/keyboards/inline/kbd.py:220
+msgid "pump replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:203 src/keyboards/inline/kbd.py:221
+msgid "FAHU motor replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:204 src/keyboards/inline/kbd.py:222
+msgid "FAHU belt replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:205 src/keyboards/inline/kbd.py:223
+msgid "high efficiency filter replacement"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:234 src/keyboards/inline/kbd.py:263
+msgid "grills"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:235 src/keyboards/inline/kbd.py:264
+msgid "duct"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:236 src/keyboards/inline/kbd.py:265
+msgid "pan"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:237 src/keyboards/inline/kbd.py:266
+msgid "evaporator"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:238 src/keyboards/inline/kbd.py:267
+msgid "blower"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:239 src/keyboards/inline/kbd.py:268
+msgid "filter"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:240 src/keyboards/inline/kbd.py:269
+msgid "ceiling area"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:249 src/keyboards/inline/kbd.py:286
+msgid "Choose maintenance nodes (Page {}/2)"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:293
+msgid "Select block type:"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:297
+msgid "Full Maintenance"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:298
+msgid "Support"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:308 src/keyboards/inline/kbd.py:335
+#: src/keyboards/inline/kbd.py:363 src/keyboards/inline/kbd.py:390
+#: src/keyboards/inline/kbd.py:417 src/keyboards/inline/kbd.py:440
+msgid ""
+"Choose completed work:\n"
+"❗️ - recommendation for action immediately \n"
+"📣 - recommendation for actions in the next service\n"
+"❌ - no action recommendation selected"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:316 src/keyboards/inline/kbd.py:343
+msgid "Disassembling and cleaning the grills"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:317 src/keyboards/inline/kbd.py:344
+msgid "Duct cleaning and desinfection"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:318 src/keyboards/inline/kbd.py:345
+msgid "Evaporator cleaning and desinfection"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:319 src/keyboards/inline/kbd.py:346
+msgid "Blower cleaning"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:320 src/keyboards/inline/kbd.py:347
+#: src/keyboards/inline/kbd.py:374 src/keyboards/inline/kbd.py:401
+msgid "Filter cleaning"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:321 src/keyboards/inline/kbd.py:348
+#: src/keyboards/inline/kbd.py:375 src/keyboards/inline/kbd.py:402
+msgid "Installation of additional filters"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:322 src/keyboards/inline/kbd.py:349
+#: src/keyboards/inline/kbd.py:377 src/keyboards/inline/kbd.py:404
+msgid "Drainage cleaning"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:323 src/keyboards/inline/kbd.py:350
+#: src/keyboards/inline/kbd.py:378 src/keyboards/inline/kbd.py:405
+msgid "Outside unit cleaning (if required)"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:324 src/keyboards/inline/kbd.py:351
+msgid "Pcb cleaning"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:325 src/keyboards/inline/kbd.py:352
+msgid "Pulling electrical fasteners"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:371 src/keyboards/inline/kbd.py:398
+msgid "Checking for mold on the grill"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:372 src/keyboards/inline/kbd.py:399
+msgid "Duct desinfection"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:373 src/keyboards/inline/kbd.py:400
+msgid "Evaporator desinfection"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:376 src/keyboards/inline/kbd.py:403
+msgid "Pan cleaning"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:379 src/keyboards/inline/kbd.py:406
+msgid "pcb cleaning (if required)"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:380 src/keyboards/inline/kbd.py:407
+msgid "Pulling electrical fasteners (if required)"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:425 src/keyboards/inline/kbd.py:448
+msgid "Evaporator service Fresh Air Unit(FHU)"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:426 src/keyboards/inline/kbd.py:449
+msgid "Blower service (FHU)"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:427 src/keyboards/inline/kbd.py:450
+msgid "Filter cleaning (FHU)"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:428 src/keyboards/inline/kbd.py:451
+msgid "Fine filter (FHU)"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:429 src/keyboards/inline/kbd.py:452
+msgid "Belt FHU"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:430 src/keyboards/inline/kbd.py:453
+msgid "Exhaust fan"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:475
+msgid ""
+"Room: {room_name}\n"
+"\n"
+"Serviced nodes:\n"
+"NO photo - 📷\n"
+"NO video - 📹\n"
+"NO comment - 💬\n"
+"\n"
+"Tap to node for change"
+msgstr ""
+
+#: src/keyboards/inline/kbd.py:492
+msgid "Select report master:"
+msgstr ""
+
+#: src/states/setters.py:18
+msgid "Enter clients Name"
+msgstr ""
+
+#: src/states/setters.py:26
 msgid "Enter Phone number"
-msgstr ""
-
-#: src/states/setters.py:142
-msgid "Do you want to add room?"
-msgstr ""
-
-#: src/states/setters.py:147
-msgid "Do you want to add repair unit?"
-msgstr ""
-
-#: src/states/setters.py:155
-msgid "Send image BEFORE for repair work"
-msgstr ""
-
-#: src/states/setters.py:160
-msgid "Send image AFTER for repair work"
 msgstr ""
 
 #: venv/lib/python3.10/site-packages/awscli/bcdoc/textwriter.py:469
@@ -357,4 +721,482 @@ msgstr ""
 #: venv/lib/python3.10/site-packages/awscli/bcdoc/textwriter.py:470
 msgid "[image]"
 msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:407
+#, python-format
+msgid "Content purported to be compressed with %s but failed to decompress."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:571
+#, python-format
+msgid "Unsupported value for qop: %s."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:575
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:653
+#, python-format
+msgid "Unsupported value for algorithm: %s.algorithm"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:648
+msgid "The challenge doesn't contain a server nonce, or this one is empty."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:658
+#, python-format
+msgid "Unsupported value for pw-algorithm: %s.pw-algorithm"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/httplib2/__init__.py:1471
+msgid "Redirected but the response is missing a Location: header."
+msgstr ""
+
+#~ msgid "An error occurred. Please try again."
+#~ msgstr ""
+
+#~ msgid "Enter client address:"
+#~ msgstr ""
+
+#~ msgid "Enter room"
+#~ msgstr ""
+
+#~ msgid "Unexpected service type"
+#~ msgstr ""
+
+#~ msgid "Enter block"
+#~ msgstr ""
+
+#~ msgid "Enter work factors"
+#~ msgstr ""
+
+#~ msgid "An error occurred while adding the node"
+#~ msgstr ""
+
+#~ msgid "Please type other cleaning node"
+#~ msgstr ""
+
+#~ msgid "Room not found"
+#~ msgstr ""
+
+#~ msgid "Node not found"
+#~ msgstr ""
+
+#~ msgid "You didn't selected cleaning nodes"
+#~ msgstr ""
+
+#~ msgid "Send photo BEFORE for {}"
+#~ msgstr ""
+
+#~ msgid "Now write a recommendation for the photo"
+#~ msgstr ""
+
+#~ msgid "Now write a recommendation for the room"
+#~ msgstr ""
+
+#~ msgid "Send photo AFTER for {}"
+#~ msgstr ""
+
+#~ msgid "Add a photo 📷"
+#~ msgstr ""
+
+#~ msgid "Add video 📹"
+#~ msgstr ""
+
+#~ msgid "Add a comment 💬"
+#~ msgstr ""
+
+#~ msgid "Skip"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Node selected: {}\n"
+#~ "What would you like to add?"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Node selected: {}\n"
+#~ "Nothing to add (no missing data)"
+#~ msgstr ""
+
+#~ msgid "Please enter a comment:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Please send video\n"
+#~ " The maximum size is 20 MB:"
+#~ msgstr ""
+
+#~ msgid "Send master name"
+#~ msgstr ""
+
+#~ msgid "Generating..."
+#~ msgstr ""
+
+#~ msgid "Thank you for your work!"
+#~ msgstr ""
+
+#~ msgid "Need report in Russian?"
+#~ msgstr ""
+
+#~ msgid "Incorrect Name"
+#~ msgstr ""
+
+#~ msgid "Incorrect Date"
+#~ msgstr ""
+
+#~ msgid "Incorrect phone"
+#~ msgstr ""
+
+#~ msgid "Incorrect address"
+#~ msgstr ""
+
+#~ msgid "Incorrect room"
+#~ msgstr ""
+
+#~ msgid "Cleaning node name is too long! Should be < 31"
+#~ msgstr ""
+
+#~ msgid "Photo BEFORE add. Send photo AFTER for"
+#~ msgstr ""
+
+#~ msgid "BEFORE photo added!"
+#~ msgstr ""
+
+#~ msgid "Photos saved! Node data updated."
+#~ msgstr ""
+
+#~ msgid "Comment saved! Node data updated."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The video is too large! The maximum size is 20 MB.\n"
+#~ "Please compress the video and resubmit it."
+#~ msgstr ""
+
+#~ msgid "Video ID saved! Video will be downloaded when report is generated."
+#~ msgstr ""
+
+#~ msgid "Room master saved!"
+#~ msgstr ""
+
+#~ msgid "Hi! {first_name} {last_name}"
+#~ msgstr ""
+
+#~ msgid "Add room master"
+#~ msgstr ""
+
+#~ msgid "Master"
+#~ msgstr ""
+
+#~ msgid "Do you want to add room?"
+#~ msgstr ""
+
+#~ msgid "yes"
+#~ msgstr ""
+
+#~ msgid "no"
+#~ msgstr ""
+
+#~ msgid "Select room type:"
+#~ msgstr ""
+
+#~ msgid "Kitchen"
+#~ msgstr ""
+
+#~ msgid "Bedroom"
+#~ msgstr ""
+
+#~ msgid "Living Room"
+#~ msgstr ""
+
+#~ msgid "Master bedroom"
+#~ msgstr ""
+
+#~ msgid "Kids bedroom"
+#~ msgstr ""
+
+#~ msgid "Guest bedroom"
+#~ msgstr ""
+
+#~ msgid "Maids bedroom"
+#~ msgstr ""
+
+#~ msgid "Cabinet room"
+#~ msgstr ""
+
+#~ msgid "Gym"
+#~ msgstr ""
+
+#~ msgid "Other"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Enter date of visit in format DAY MONTH YEAR.\n"
+#~ "\n"
+#~ "For example: 1 12 2022 (December the 1st, 2022)"
+#~ msgstr ""
+
+#~ msgid "2 days ago"
+#~ msgstr ""
+
+#~ msgid "Yesterday"
+#~ msgstr ""
+
+#~ msgid "Today"
+#~ msgstr ""
+
+#~ msgid "Select unit type:"
+#~ msgstr ""
+
+#~ msgid "Indoor unit"
+#~ msgstr ""
+
+#~ msgid "Outdoor unit"
+#~ msgstr ""
+
+#~ msgid "Choose service:"
+#~ msgstr ""
+
+#~ msgid "Service"
+#~ msgstr ""
+
+#~ msgid "Maintenance"
+#~ msgstr ""
+
+#~ msgid "Check list"
+#~ msgstr ""
+
+#~ msgid "Yes"
+#~ msgstr ""
+
+#~ msgid "No"
+#~ msgstr ""
+
+#~ msgid "Choose cleaning nodes"
+#~ msgstr ""
+
+#~ msgid "valve"
+#~ msgstr ""
+
+#~ msgid "аctuator"
+#~ msgstr ""
+
+#~ msgid "insulation fixing"
+#~ msgstr ""
+
+#~ msgid "indoor unit condenser replacement"
+#~ msgstr ""
+
+#~ msgid "thermostat adjustment"
+#~ msgstr ""
+
+#~ msgid "thermostat replacement"
+#~ msgstr ""
+
+#~ msgid "motor replacement"
+#~ msgstr ""
+
+#~ msgid "blower replacement"
+#~ msgstr ""
+
+#~ msgid "filter replacement/installation"
+#~ msgstr ""
+
+#~ msgid "Enter"
+#~ msgstr ""
+
+#~ msgid "Choose service nodes"
+#~ msgstr ""
+
+#~ msgid "compressor replacement"
+#~ msgstr ""
+
+#~ msgid "starter replacement"
+#~ msgstr ""
+
+#~ msgid "capacitor replacement"
+#~ msgstr ""
+
+#~ msgid "fan motor"
+#~ msgstr ""
+
+#~ msgid "electrical checking and tightening"
+#~ msgstr ""
+
+#~ msgid "gas pressure checking"
+#~ msgstr ""
+
+#~ msgid "water heater replacement"
+#~ msgstr ""
+
+#~ msgid "pump replacement"
+#~ msgstr ""
+
+#~ msgid "FAHU motor replacement"
+#~ msgstr ""
+
+#~ msgid "FAHU belt replacement"
+#~ msgstr ""
+
+#~ msgid "high efficiency filter replacement"
+#~ msgstr ""
+
+#~ msgid "grills"
+#~ msgstr ""
+
+#~ msgid "duct"
+#~ msgstr ""
+
+#~ msgid "pan"
+#~ msgstr ""
+
+#~ msgid "evaporator"
+#~ msgstr ""
+
+#~ msgid "blower"
+#~ msgstr ""
+
+#~ msgid "filter"
+#~ msgstr ""
+
+#~ msgid "ceiling area"
+#~ msgstr ""
+
+#~ msgid "Choose maintenance nodes (Page {}/2)"
+#~ msgstr ""
+
+#~ msgid "Select block type:"
+#~ msgstr ""
+
+#~ msgid "Full Maintenance"
+#~ msgstr ""
+
+#~ msgid "Support"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Choose completed work:\n"
+#~ "❗️ - recommendation for action immediately \n"
+#~ "📣 - recommendation for actions in the next service\n"
+#~ "❌ - no action recommendation selected"
+#~ msgstr ""
+
+#~ msgid "Disassembling and cleaning the grills"
+#~ msgstr ""
+
+#~ msgid "Duct cleaning and desinfection"
+#~ msgstr ""
+
+#~ msgid "Evaporator cleaning and desinfection"
+#~ msgstr ""
+
+#~ msgid "Blower cleaning"
+#~ msgstr ""
+
+#~ msgid "Filter cleaning"
+#~ msgstr ""
+
+#~ msgid "Installation of additional filters"
+#~ msgstr ""
+
+#~ msgid "Drainage cleaning"
+#~ msgstr ""
+
+#~ msgid "Outside unit cleaning (if required)"
+#~ msgstr ""
+
+#~ msgid "Pcb cleaning"
+#~ msgstr ""
+
+#~ msgid "Pulling electrical fasteners"
+#~ msgstr ""
+
+#~ msgid "Checking for mold on the grill"
+#~ msgstr ""
+
+#~ msgid "Duct desinfection"
+#~ msgstr ""
+
+#~ msgid "Evaporator desinfection"
+#~ msgstr ""
+
+#~ msgid "Pub cleaning"
+#~ msgstr ""
+
+#~ msgid "pcb cleaning (if required)"
+#~ msgstr ""
+
+#~ msgid "Pulling electrical fasteners (if required)"
+#~ msgstr ""
+
+#~ msgid "Evaporator service Fresh Air Unit(FHU)"
+#~ msgstr ""
+
+#~ msgid "Blower service (FHU)"
+#~ msgstr ""
+
+#~ msgid "Filter cleaning (FHU)"
+#~ msgstr ""
+
+#~ msgid "Fine filter (FHU)"
+#~ msgstr ""
+
+#~ msgid "Belt FHU"
+#~ msgstr ""
+
+#~ msgid "Exhaust fan"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Room: {room_name}\n"
+#~ "\n"
+#~ "Serviced nodes:\n"
+#~ "NO photo - 📷\n"
+#~ "NO video - 📹\n"
+#~ "NO comment - 💬\n"
+#~ "\n"
+#~ "Tap to node for change"
+#~ msgstr ""
+
+#~ msgid "Select report master:"
+#~ msgstr ""
+
+#~ msgid "Enter clients Name"
+#~ msgstr ""
+
+#~ msgid "Enter Phone number"
+#~ msgstr ""
+
+#~ msgid "Do you want to add repair unit?"
+#~ msgstr ""
+
+#~ msgid "Send image BEFORE for repair work"
+#~ msgstr ""
+
+#~ msgid "Send image AFTER for repair work"
+#~ msgstr ""
+
+#~ msgid "[image: %s]"
+#~ msgstr ""
+
+#~ msgid "[image]"
+#~ msgstr ""
+
+#~ msgid "Content purported to be compressed with %s but failed to decompress."
+#~ msgstr ""
+
+#~ msgid "Unsupported value for qop: %s."
+#~ msgstr ""
+
+#~ msgid "Unsupported value for algorithm: %s.algorithm"
+#~ msgstr ""
+
+#~ msgid "The challenge doesn't contain a server nonce, or this one is empty."
+#~ msgstr ""
+
+#~ msgid "Unsupported value for pw-algorithm: %s.pw-algorithm"
+#~ msgstr ""
+
+#~ msgid "Redirected but the response is missing a Location: header."
+#~ msgstr ""
 

@@ -60,8 +60,7 @@ class Fonts:
         "name": "IBMPlexSansRegular",
         "path": FONTS_PATH / "IBMPlexSans-Regular.ttf",
     }
-
-
+    
 class Formatter:
     IMAGE_WIDTH = 0
     X_POS = 0
@@ -145,6 +144,7 @@ def add_image(canv, img: Image.Image, img_width: float, x: float, y: float):
 
 
 def _get_ghostscript_path():
+    # gs_names = ["gswin64c", "gswin32c", "gs"]  # "c" в конце — консольная версия
     gs_names = ["gs", "gswin32", "gswin64"]
     for name in gs_names:
         if shutil.which(name):
@@ -178,3 +178,70 @@ def pdf_compression(filepath: str, remove_input_file=True) -> str:
     if remove_input_file:
         os.remove(input_file_abs_path)
     return output_file_abs_path
+
+# def _get_ghostscript_path():
+#     # 1. Проверяем стандартные имена в PATH
+#     gs_names = ["gswin64c", "gswin32c", "gs"]
+#     for name in gs_names:
+#         path = shutil.which(name)
+#         if path:
+#             return path
+    
+#     # 2. Проверяем стандартные пути установки
+#     gs_install_paths = [
+#         r"C:\Program Files\gs\gs10.05.1\bin\gswin64c.exe",
+#         r"C:\Program Files (x86)\gs\gs9.53.3\bin\gswin32c.exe",
+#     ]
+    
+#     for path in gs_install_paths:
+#         if os.path.exists(path):
+#             return path
+    
+#     # 3. Если ничего не найдено
+#     raise FileNotFoundError(
+#         f"GhostScript не найден. Убедитесь, что он установлен в C:\\Program Files\\gs\\gs10.05.1\\bin"
+#         f" и добавлен в PATH, или укажите полный путь к gswin64c.exe"
+#     )
+
+
+
+# def pdf_compression(filepath: str, remove_input_file=True) -> str:
+#     try:
+#         gs = _get_ghostscript_path()
+#         input_file_abs_path = os.path.abspath(filepath)
+#         output_file_abs_path = os.path.splitext(input_file_abs_path)[0] + "-compressed.pdf"
+        
+#         # Проверяем существование входного файла
+#         if not os.path.exists(input_file_abs_path):
+#             raise FileNotFoundError(f"Input PDF file not found: {input_file_abs_path}")
+        
+#         # Создаем пустой выходной файл
+#         Path(output_file_abs_path).touch()
+        
+#         # Запускаем Ghostscript
+#         subprocess.run(
+#             [
+#                 gs,
+#                 "-sDEVICE=pdfwrite",
+#                 "-dCompatibilityLevel=1.4",
+#                 "-dPDFSETTINGS=/default",
+#                 "-dNOPAUSE",
+#                 "-dQUIET",
+#                 "-dBATCH",
+#                 f"-sOutputFile={output_file_abs_path}",
+#                 input_file_abs_path,
+#             ],
+#             check=True,
+#             stdout=subprocess.PIPE,
+#             stderr=subprocess.PIPE,
+#         )
+        
+#         if remove_input_file:
+#             os.remove(input_file_abs_path)
+            
+#         return output_file_abs_path
+        
+#     except subprocess.CalledProcessError as e:
+#         raise RuntimeError(f"Ghostscript failed with error: {e.stderr.decode()}") from e
+#     except Exception as e:
+#         raise RuntimeError(f"PDF compression failed: {str(e)}") from e
