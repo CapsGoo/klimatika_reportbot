@@ -119,7 +119,12 @@ def get_cleaning_node_keyboard(
     
     # Добавляем кнопки для узлов обслуживания
     for index, cleaning_node in enumerate(cleaning_nodes):
-        status = [cleaning_node, True] in room.default_cleaning_nodes
+        # Проверяем статус узла по имени (надежнее, чем сравнение объектов)
+        status = False
+        for node, active in room.default_cleaning_nodes:
+            if node.name == cleaning_node.name:
+                status = active
+                break
         status_text = "✅" if status else "❌"
         adjusted_index = index + 7 if page == 2 else index
         callback_data = CleaningNodeCB(

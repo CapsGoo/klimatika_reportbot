@@ -306,6 +306,17 @@ async def callback_add_other_cleaning_node(
 async def callback_enter_cleaning_node(
     callback: types.CallbackQuery, state: FSMContext
 ):
+    room = get.get_current_user_room(callback.message.chat.id)
+    
+    # Проверяем, выбрана ли хотя бы одна нода
+    has_selected = any(active for _, active in room.default_cleaning_nodes)
+    if not has_selected and not room.cleaning_nodes:
+        await callback.answer(
+            _("Please select at least one node before continuing"),
+            show_alert=True
+        )
+        return
+    
     await callback.answer()
     report = get.get_current_user_report(callback.message.chat.id)
     if report.service == Report.Service.MAINTENANCE:
@@ -443,9 +454,20 @@ async def callback_add_other_cleaning_node(
 @router.callback_query(
     Form.room_check_list_nodes, CleaningNodeCB.filter(F.action == "enter")
 )
-async def callback_enter_cleaning_node(
+async def callback_enter_check_list_node(
     callback: types.CallbackQuery, state: FSMContext
 ):
+    room = get.get_current_user_room(callback.message.chat.id)
+    
+    # Проверяем, выбрана ли хотя бы одна нода (с immediate или normal)
+    has_selected = any(active for _, active in room.default_cleaning_nodes)
+    if not has_selected and not room.cleaning_nodes:
+        await callback.answer(
+            _("Please select at least one node before continuing"),
+            show_alert=True
+        )
+        return
+    
     await callback.answer()
 
     # await set_state.set_add_room_state(callback.message, state)
