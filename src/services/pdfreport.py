@@ -1524,7 +1524,7 @@ class pdfGenerator:
         canv.showPage()
 
 
-    def _process_service_nodes(self, room, room_data, gettext_func=None):
+    def _process_service_nodes(self, room, room_data, gettext_func=None, room_idx: int = 0):
         """Обработка сервисных узлов с кэшированием переводов"""
         if gettext_func is None:
             gettext_func = lambda x: x
@@ -1533,7 +1533,8 @@ class pdfGenerator:
         
         for node_id, node in room["nodes"].items():
             # Создаем уникальный ключ для отслеживания обработки узла
-            node_key = f"{room_data['room_name']}_{node_id}"
+            # Используем room_idx для избежания коллизий при одинаковых названиях комнат
+            node_key = f"{room_idx}_{room_data['room_name']}_{node_id}"
             
             # Пропускаем уже обработанные узлы
             if node_key in self._processed_nodes:
@@ -1580,7 +1581,7 @@ class pdfGenerator:
                 )
 
 
-    def _process_maintenance_nodes(self, room, room_data, gettext_func=None):
+    def _process_maintenance_nodes(self, room, room_data, gettext_func=None, room_idx: int = 0):
         """Обработка узлов техобслуживания с кэшированием переводов"""
         if gettext_func is None:
             gettext_func = lambda x: x
@@ -1601,8 +1602,8 @@ class pdfGenerator:
         room_data["nodes_without_photos"] = []
         
         for node_id, node in room["nodes"].items():
-            # Создаем уникальный ключ
-            node_key = f"{room_data['room_name']}_maintenance_{node_id}"
+            # Создаем уникальный ключ (с room_idx для избежания коллизий)
+            node_key = f"{room_idx}_{room_data['room_name']}_maintenance_{node_id}"
             
             # Пропускаем уже обработанные узлы
             if node_key in self._processed_nodes:
@@ -1645,7 +1646,7 @@ class pdfGenerator:
                 )
 
 
-    def _process_checklist_nodes(self, room, room_data, gettext_func=None):
+    def _process_checklist_nodes(self, room, room_data, gettext_func=None, room_idx: int = 0):
         """Обработка узлов контрольного списка с кэшированием переводов"""
         if gettext_func is None:
             gettext_func = lambda x: x
@@ -1653,8 +1654,8 @@ class pdfGenerator:
         target_lang = self._get_target_language(gettext_func)
         
         for node_id, node in room["nodes"].items():
-            # Создаем уникальный ключ
-            node_key = f"{room_data['room_name']}_checklist_{node_id}"
+            # Создаем уникальный ключ (с room_idx для избежания коллизий)
+            node_key = f"{room_idx}_{room_data['room_name']}_checklist_{node_id}"
             
             # Пропускаем уже обработанные узлы
             if node_key in self._processed_nodes:
@@ -1844,17 +1845,21 @@ class pdfGenerator:
             rooms = report["Rooms"]
             all_rooms_data = []
             report_type = outline["report_service"]
-            
-            # Обработка всех комнат с оптимизированным переводом
-            for room in rooms["rooms_list"]:
+
+            print(f"DEBUG: Total rooms in list: {len(rooms['rooms_list'])}")
+            for idx, room in enumerate(rooms["rooms_list"]):
+                print(f"DEBUG: Processing room {idx}: {room.get('object')}")
+                
+            # Обработка каждой комнаты по порядку: фото → grouped → следующая комната
+            for idx, room in enumerate(rooms["rooms_list"]):
                 # Переводим название комнаты
                 original_room_name = room["object"]
                 translated_room_name = self._translate_room_name(original_room_name, gettext_func)
                 
                 # Инициализация комнаты с переведенным названием
                 room_data = {
-                    "room_name": translated_room_name,  # Используем переведенное название
-                    "original_room_name": original_room_name,  # Сохраняем оригинальное название
+                    "room_name": translated_room_name,
+                    "original_room_name": original_room_name,
                     "room_comment": room.get("room_comment"),
                     "room_video_url": room.get("url_room_video"),
                     "master": room.get("room_master"),
@@ -1867,35 +1872,35 @@ class pdfGenerator:
                 
                 all_rooms_data.append(room_data)
 
-                # Обработка узлов в зависимости от типа отчета
+                # Обработка узлов — сразу генерирует слайды с ФОТО
                 if report_type == "Service":
-                    self._process_service_nodes(room, room_data, gettext_func)
+                    self._process_service_nodes(room, room_data, gettext_func, idx)
                 elif report_type == "Maintenance":
-                    self._process_maintenance_nodes(room, room_data, gettext_func)
+                    self._process_maintenance_nodes(room, room_data, gettext_func, idx)
                 elif report_type == "Check list":
-                    self._process_checklist_nodes(room, room_data, gettext_func)
+                    self._process_checklist_nodes(room, room_data, gettext_func, idx)
                 else:
                     print(f"WARNING: Unknown report type: {report_type}")
-                    self._process_service_nodes(room, room_data, gettext_func)
+                    self._process_service_nodes(room, room_data, gettext_func, idx)
                 
                 print(f"DEBUG: After processing room comment: '{room_data['room_comment']}'")
 
-            # Валидация данных
+                # grouped слайды для узлов БЕЗ фото этой же комнаты
+                if report_type == "Service":
+                    service_nodes = self._prepare_service_nodes([room_data], gettext_func)
+                    if service_nodes:
+                        self.create_grouped_slides(service_nodes, gettext_func)
+                elif report_type == "Maintenance":
+                    maintenance_nodes = self._prepare_maintenance_nodes([room_data], gettext_func)
+                    if maintenance_nodes:
+                        self.create_maintenance_summary_slides(maintenance_nodes, gettext_func)
+                elif report_type == "Check list":
+                    checklist_nodes = self._prepare_checklist_nodes([room_data], gettext_func)
+                    if checklist_nodes:
+                        self.check_list_grouped_slides(checklist_nodes, gettext_func)
+
+            # Валидация данных (оставлена для консистентности)
             self._validate_room_data(all_rooms_data)
-
-            # Генерация summary страниц
-            if report_type == "Maintenance":
-                maintenance_nodes = self._prepare_maintenance_nodes(all_rooms_data, gettext_func)
-                self.create_maintenance_summary_slides(maintenance_nodes, gettext_func)
-
-            elif report_type == "Service":
-                service_nodes = self._prepare_service_nodes(all_rooms_data, gettext_func)
-                if service_nodes:
-                    self.create_grouped_slides(service_nodes, gettext_func)
-            elif report_type == "Check list":
-                checklist_nodes = self._prepare_checklist_nodes(all_rooms_data, gettext_func)
-                if checklist_nodes:
-                    self.check_list_grouped_slides(checklist_nodes, gettext_func)
 
             self.last_slides(gettext_func)
             self.canv.save()
